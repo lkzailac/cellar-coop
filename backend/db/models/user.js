@@ -29,9 +29,62 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       isIn: [[2, 4, 6, 8, 10, 12]]
     }
-  }, {});
+  },
+  {
+    defaultScope: {
+      attributes: {
+        exclude: ['hashedPassword']
+      }
+    },
+    scopes: {
+      currentUser: {
+        attributes: { exclude: ['hashedPassword']}
+      },
+      loginUser: {
+        attributes: {}
+      }
+    }
+  });
   User.associate = function(models) {
     // associations can be defined here
   };
+
+  //instance methods
+  //returns items safe to save to a JWT
+  User.prototype.toSafeObject = function() {
+    const {id, email} = this;
+    return {id, email};
+  }
+  //compares signed up user's password to their saved hash
+  User.prototype.validatePassword = function (password) {
+    return bcrypt.compareSync(password, this.hashedPassword.toString());
+  };
+
+  //static methods
+  User.getCurrentUserById = async function(id) {
+    return await User.scope('currentUser').findByPk(id);
+  }
+
+  User.login = async function ({ email, password }) {
+
+    const user = await User.scope('loginUser').findOne({
+      where: { email },
+    });
+    if (user && user.validatePassword(password)) {
+      return await User.scope('currentUser').findByPk(user.id);
+    }
+  };
+
+  User.signup = async function ({ email, password }) {
+    const hashedPassword = bcrypt.hashSync(password);
+    const user = await User.create({
+      email,
+      hashedPassword,
+    });
+    return await User.scope('currentUser').findByPk(user.id);
+  };
+
+
+
   return User;
 };
