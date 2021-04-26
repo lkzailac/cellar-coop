@@ -18,6 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     //one to many
     Item.belongsTo(models.Designer, {foreignKey: 'designerId'});
     Item.belongsTo(models.Category, { foreignKey: 'categoryId'});
+    //many to one
+    Item.hasMany(models.Booking, { foreignKey: 'itemId'})
 
   };
   return Item;
