@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
-import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation'
 import ItemsPage from './components/Items'
+import HomePage from './components/HomePage'
 import { restoreUser } from './store/session';
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
+          <Route exact path='/' >
+            <HomePage isLoaded={isLoaded}/>
           </Route>
           <Route path='/items'>
             <ItemsPage />

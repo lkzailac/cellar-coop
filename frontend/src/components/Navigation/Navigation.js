@@ -2,10 +2,10 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import LoginFormModal from '../LoginFormModal';
+import LoginForm from '../LoginForm';
 import ProfileButton from '../ProfileButton';
 
-import '../index.css';
+// import '../../index.css';
 import './Navigation.css';
 
 
@@ -21,7 +21,7 @@ function Navigation({ isLoaded }){
       sessionLinks = (
         <>
             <li>
-                <LoginFormModal />
+                <LoginForm />
                 {/* <NavLink activeStyle={{color:'pink'}} to="/login">Log In</NavLink> */}
             </li>
             <li>

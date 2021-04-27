@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { getItems } from '../../store/items';
 
-import '../index.css';
+// import '../../index.css';
 import './Items.css';
 
 

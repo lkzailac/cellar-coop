@@ -4,12 +4,12 @@ import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signup } from '../../store/session';
 
-import '../index.css';
+// import '../../index.css';
 import './SignupForm.css';
 
 
 
-const SignupFormPage = () => {
+const SignupForm = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -71,4 +71,4 @@ const SignupFormPage = () => {
 
 
 
-export default SignupFormPage;
+export default SignupForm;
