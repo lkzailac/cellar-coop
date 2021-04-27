@@ -9,7 +9,7 @@ import {loginDemo} from '../../store/session';
 // import '../../index.css';
 import './HomePage.css';
 
-const HomePage = ({isLoaded}) => {
+const HomePage = () => {
     const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state.session.user);
@@ -29,7 +29,9 @@ const HomePage = ({isLoaded}) => {
 
     if (sessionUser) {
         sessionContent = (
-            <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544668/favicon_2_xi1adp.png' />
+            <div className='main-logo'>
+                <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544668/favicon_2_xi1adp.png' />
+            </div>
         )
     } else if (!sessionUser && !clickedButton ) {
         sessionContent =(
