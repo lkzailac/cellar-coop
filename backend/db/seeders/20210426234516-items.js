@@ -1,10 +1,22 @@
 'use strict';
-const faker = require('faker');
+
 
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Items', [
+        {
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544146/pngfind.com-ruffle-png-3985514_j77fo1.png',
+          description: 'Exercitationem nam rerum amet consequuntur soluta fugit est tempora. Ipsum dolor beatae velit quia necessitatibus qui illum sed voluptas. Vitae enim eum aut aut autem non. Doloribus atque laboriosam occaecati consequatur quia velit. Esse at quisquam quo et consequuntur dolore aliquid. Et ea id pariatur corrupti.',
+          originalPrice_USD: 167,
+          priceToRent_USD: 24,
+          priceToBuy_USD: 34,
+          sizeSInventory: 42,
+          sizeMInventory: 40,
+          sizeLInventory: 90,
+          designerId: 8,
+          categoryId: 2
+        },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619540697/sweater_PNG11_gse0mm.png',
           description: 'Voluptatem suscipit quis. Error molestias accusamus provident quidem et. Sit minima et ex delectus. Alias maxime nihil. Explicabo ut hic enim.',
@@ -15,7 +27,7 @@ module.exports = {
           sizeMInventory: 30,
           sizeLInventory: 99,
           designerId: 2,
-          categoryId: 'sweater'
+          categoryId: 3
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619541750/pngfind.com-ruffle-png-3985623_cegkiz.png',
@@ -27,7 +39,7 @@ module.exports = {
           sizeMInventory: 27,
           sizeLInventory: 43,
           designerId: 14,
-          categoryId: 'dress'
+          categoryId: 2
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619541750/pngfind.com-jeans-pant-png-2098060_rfu6wt.png',
@@ -39,7 +51,7 @@ module.exports = {
           sizeMInventory: 54,
           sizeLInventory: 3,
           designerId: 17,
-          categoryId: 'denim'
+          categoryId: 5
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619541856/dress_PNG156_v3kmll.png',
@@ -51,7 +63,7 @@ module.exports = {
           sizeMInventory: 63,
           sizeLInventory: 99,
           designerId: 7,
-          categoryId: 'dress'
+          categoryId: 2
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619541863/33271-6-floral-dress-photos_wppy5q.png',
@@ -63,7 +75,7 @@ module.exports = {
           sizeMInventory: 77,
           sizeLInventory: 84,
           designerId: 2,
-          categoryId: 'dress'
+          categoryId: 2
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619542105/Sweater-PNG-HD-Quality_mcnqgt.png',
@@ -75,7 +87,7 @@ module.exports = {
           sizeMInventory: 87,
           sizeLInventory: 47,
           designerId: 8,
-          categoryId: 'sweater'
+          categoryId: 3
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619542106/Men-Sweater-PNG-Free-File-Download_kiwlfw.png',
@@ -87,7 +99,7 @@ module.exports = {
           sizeMInventory: 49,
           sizeLInventory: 7,
           designerId: 17,
-          categoryId: 'sweater'
+          categoryId: 3
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619542107/Men-Sweater-Free-PNG_e4rdtf.png',
@@ -99,7 +111,7 @@ module.exports = {
           sizeMInventory: 74,
           sizeLInventory: 71,
           designerId: 13,
-          categoryId: 'sweater'
+          categoryId: 3
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619542124/Sweater-Transparent-Background_stfoea.png',
@@ -111,7 +123,7 @@ module.exports = {
           sizeMInventory: 43,
           sizeLInventory: 45,
           designerId: 6,
-          categoryId: 'sweater'
+          categoryId: 3
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543159/Female-Clothes-Transparent-File_ossoie.png',
@@ -123,7 +135,7 @@ module.exports = {
           sizeMInventory: 38,
           sizeLInventory: 21,
           designerId: 20,
-          categoryId: 'dress'
+          categoryId: 2
         },
         {
           photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543168/Clothes-PNG-HD-Quality_i9hcqx.png',
@@ -135,10 +147,10 @@ module.exports = {
           sizeMInventory: 82,
           sizeLInventory: 28,
           designerId: 14,
-          categoryId: 't-shirt'
+          categoryId: 4
         },
         {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543423/Polo-Shirt-Transparent-Free-PNG_dvykyd.png',
           description: 'Ipsum itaque quaerat rerum doloremque itaque vitae qui quas aut. Laudantium praesentium aut dolorum recusandae nihil doloribus dolor. Optio explicabo eius suscipit porro nulla necessitatibus ut. Repudiandae quis aspernatur molestiae sed adipisci rerum dolor pariatur natus. Ut velit est eligendi sint corrupti rerum molestiae commodi iste.',
           originalPrice_USD: 162,
           priceToRent_USD: 24,
@@ -147,10 +159,10 @@ module.exports = {
           sizeMInventory: 77,
           sizeLInventory: 72,
           designerId: 12,
-          categoryId: 'categoty'
+          categoryId: 4
         },
         {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543428/Cargo-Pant-PNG_lo6e2l.png',
           description: 'Alias sequi temporibus placeat sit cumque dolores. Qui molestiae non aspernatur optio. Sit repellat aperiam. Quasi dolores ut enim cumque sunt sit. At voluptate rerum adipisci.',
           originalPrice_USD: 194,
           priceToRent_USD: 28,
@@ -159,10 +171,10 @@ module.exports = {
           sizeMInventory: 67,
           sizeLInventory: 34,
           designerId: 20,
-          categoryId: 'categoty'
+          categoryId: 1
         },
         {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543435/Denim-Jean-PNG-File_xbl6bm.png',
           description: 'Voluptatibus saepe odit dolore possimus recusandae reiciendis omnis. Fugit modi eaque rem officiis quo tenetur rem atque et. Aut sit neque a exercitationem voluptates. Corporis officia molestiae aut non suscipit necessitatibus sequi omnis. Odit doloremque dolorem et nostrum sint similique aut sed minus. Ut dolor cupiditate et officiis odio exercitationem dolorem.',
           originalPrice_USD: 182,
           priceToRent_USD: 26,
@@ -171,10 +183,10 @@ module.exports = {
           sizeMInventory: 77,
           sizeLInventory: 68,
           designerId: 10,
-          categoryId: 'categoty'
+          categoryId: 5
         },
         {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543434/Denim-Jean-PNG-Free-Download_mxxwtu.png',
           description: 'Quia maiores molestiae. Ratione et tempore aut consequatur eos esse. Sed sed ratione quia et aut ad. Autem dolore impedit odio veritatis deserunt voluptatibus. Vel ex iusto exercitationem autem at atque illo temporibus voluptatem. Modi consequuntur et et libero qui maxime.',
           originalPrice_USD: 113,
           priceToRent_USD: 17,
@@ -183,10 +195,10 @@ module.exports = {
           sizeMInventory: 5,
           sizeLInventory: 77,
           designerId: 13,
-          categoryId: 'categoty'
+          categoryId: 5
         },
         {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543686/vippng.com-womens-jeans-png-2913283_hscljm.png',
           description: 'Excepturi officiis nesciunt delectus consectetur et. Incidunt ipsa tempora tempore quas magnam porro. Qui quis ut quisquam. Eum illum deleniti enim. Pariatur et aut facilis iusto.',
           originalPrice_USD: 161,
           priceToRent_USD: 23,
@@ -195,10 +207,10 @@ module.exports = {
           sizeMInventory: 37,
           sizeLInventory: 51,
           designerId: 6,
-          categoryId: 'categoty'
+          categoryId: 5
         },
         {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619543690/SeekPng.com_trousers-png_8087505_uoyyno.png',
           description: 'Consequatur vitae ad consectetur eaque amet et debitis maiores. Fugit ea qui ut rerum voluptatibus mollitia. Vel quod voluptatum quo. Corrupti nostrum qui reprehenderit ut et quas id incidunt aut. Incidunt aspernatur non cupiditate non nulla enim est eius possimus.',
           originalPrice_USD: 162,
           priceToRent_USD: 24,
@@ -207,10 +219,10 @@ module.exports = {
           sizeMInventory: 69,
           sizeLInventory: 49,
           designerId: 15,
-          categoryId: 'categoty'
+          categoryId: 1
         },
         {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544049/pngfind.com-ladies-dress-png-2096367_ptzvpg.png',
           description: 'Id ut perspiciatis rerum quis accusamus laboriosam consequuntur laboriosam. Et rerum iusto sit. Atque adipisci earum repudiandae a. Commodi unde sint nihil quod iure ea laboriosam. Sed tempora sint beatae magnam.',
           originalPrice_USD: 122,
           priceToRent_USD: 18,
@@ -219,22 +231,10 @@ module.exports = {
           sizeMInventory: 86,
           sizeLInventory: 41,
           designerId: 20,
-          categoryId: 'categoty'
+          categoryId: 2
         },
         {
-          photo: 'url',
-          description: 'Exercitationem nam rerum amet consequuntur soluta fugit est tempora. Ipsum dolor beatae velit quia necessitatibus qui illum sed voluptas. Vitae enim eum aut aut autem non. Doloribus atque laboriosam occaecati consequatur quia velit. Esse at quisquam quo et consequuntur dolore aliquid. Et ea id pariatur corrupti.',
-          originalPrice_USD: 167,
-          priceToRent_USD: 24,
-          priceToBuy_USD: 34,
-          sizeSInventory: 42,
-          sizeMInventory: 40,
-          sizeLInventory: 90,
-          designerId: 8,
-          categoryId: 'categoty'
-        },
-        {
-          photo: 'url',
+          photo: 'https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544057/T-Shirt-PNG-HD_lmdifh.png',
           description: 'Aliquam explicabo accusamus aut. Suscipit dolores recusandae praesentium rerum. Nostrum inventore cumque accusamus ut ea cupiditate. Itaque laborum facere incidunt. Veniam rerum quo nostrum saepe error vel sed dolor et. Ut ut odio praesentium nobis.',
           originalPrice_USD: 152,
           priceToRent_USD: 22,
@@ -243,7 +243,7 @@ module.exports = {
           sizeMInventory: 23,
           sizeLInventory: 20,
           designerId: 7,
-          categoryId: 'categoty'
+          categoryId: 2
         }
       ], {});
 
