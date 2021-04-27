@@ -13,7 +13,7 @@ import './LoginForm.css';
 
 const LoginForm = () => {
     const dispatch = useDispatch();
-    const [credential, setCredential] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([])
 
@@ -22,7 +22,8 @@ const LoginForm = () => {
         e.preventDefault();
         setErrors([]);
 
-        return dispatch(login({ credential, password }))
+        console.log('from loginformjs', email, password)
+        return dispatch(login({ email, password }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors)
@@ -38,21 +39,22 @@ const LoginForm = () => {
                 </ul>
             </div>
             <label>
-                Username or Email
                 <input
                     type='text'
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
+                    placeholder='Your Email'
                 />
             </label>
             <label>
-                Password
+
                 <input
                     type='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    placeholder='Password'
                 />
             </label>
             <button className = 'login-button' type='submit'>Log In</button>

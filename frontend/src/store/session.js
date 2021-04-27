@@ -17,12 +17,12 @@ const removeUser = () => ({
 });
 
 //thunk action creators
-export const login = (user) => async (dispatch) => {
-    const { credential, password } = user;
+export const login = ({ email, password }) => async (dispatch) => {
+    // const { email, password } = user;
 
     const res = await csrfFetch('/api/session', {
         method: "POST",
-        body: JSON.stringify({credential, password})
+        body: JSON.stringify({email, password})
     });
 
     const data = await res.json();
