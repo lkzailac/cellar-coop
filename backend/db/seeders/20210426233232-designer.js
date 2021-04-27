@@ -1,26 +1,35 @@
 'use strict';
 
+
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+    return queryInterface.bulkInsert('Designers', [
+      { name: 'Chanel'},
+      { name: 'Donna Karan'},
+      { name: 'Old Navy'},
+      { name: 'Anthropology'},
+      { name: 'Michael Kors'},
+      { name: 'Ralph Lauren'},
+      { name: 'Versace'},
+      { name: 'Vince'},
+      { name: 'Jil Sander'},
+      { name: 'Scotch & Soda'},
+      { name: 'Prada'},
+      { name: 'Rag & Bone'},
+      { name: 'Represent'},
+      { name: 'Off-White'},
+      { name: 'Burberry'},
+      { name: 'Woolrich'},
+      { name: 'Levis'},
+      { name: 'Calvin Klein'},
+      { name: 'Fred Perry'},
+      { name: 'Dear Frances'},], {});
 
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
+      return queryInterface.bulkDelete('Designers', null, {});
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
   }
 };
