@@ -31,7 +31,7 @@ const HomePage = ({isLoaded}) => {
         sessionContent = (
             <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544668/favicon_2_xi1adp.png' />
         )
-    } else if (!sessionUser && !clickedButton) {
+    } else if (!sessionUser && !clickedButton ) {
         sessionContent =(
             <>
                 <div className='main-user-buttons'>
@@ -59,10 +59,17 @@ const HomePage = ({isLoaded}) => {
         sessionContent = (
             <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544668/favicon_2_xi1adp.png' />
         )
+    } else if (!sessionUser) {
+        sessionContent =(
+            <>
+                <div className='main-user-buttons'>
+                    <button type='button' onClick={() => [setClickedButton(true), setViewLogin(true)]}>Login</button>
+                    <button type='button' onClick={() => [setClickedButton(true), setViewSignup(true)]}>Create an Account</button>
+                    <button type='button' onClick={() => [setClickedButton(true), setIsDemo(true)]}>Demo Login</button>
+                </div>
+            </>
+        )
     }
-
-
-
 
 
 
