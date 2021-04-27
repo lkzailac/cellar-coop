@@ -23,7 +23,7 @@ const ItemsPage = () => {
                 <p>Sorted By: Most Recent</p>
             </div>
             <div className='itemList'>
-                {items.map((item) => (
+                {items?.map((item) => (
                 <div key={item.id} className='itemList-detail'>
                     <img src={`${item.photo}`} alt='category' />
                     <div className='itemList-detail-info'>
