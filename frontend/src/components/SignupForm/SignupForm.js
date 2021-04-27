@@ -14,7 +14,6 @@ const SignupForm = () => {
     const sessionUser = useSelector(state => state.session.user);
 
     const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState([]);
@@ -30,14 +29,14 @@ const SignupForm = () => {
         if (password === confirmPassword) {
             setErrors([]);
 
-            return dispatch(signup({email, username, password}))
+            return dispatch(signup({email, password}))
                 .catch(async (res) => {
                     const data = await res.json();
 
                     if(data && data.errors) setErrors(data.errors);
                 })
         }
-        return setErrors([ 'Confirm Password must match Password.'])
+        return setErrors([ 'Passwords must match.'])
     }
 
     return (
@@ -48,23 +47,12 @@ const SignupForm = () => {
                     <li key={error}>{error}</li>)}
                 </ul>
             </div>
-            <label>
-                Email:
-                <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </label>
-            <label>
-                Username:
-                <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} required />
-            </label>
-            <label>
-                Password:
-                <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </label>
-            <label>
-                Confirm Password:
-                <input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-            </label>
-            <button type='submit'>Sign Up</button>
+            <div className='signup-form-inputs'>
+                <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} required placeholder='Email'/>
+                <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='Password'/>
+                <input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required placeholder='Confirm Password'/>
+            </div>
+            <button type='submit'>Create Account</button>
         </form>
     )
 }

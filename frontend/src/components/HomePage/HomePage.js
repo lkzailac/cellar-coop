@@ -4,18 +4,28 @@ import { Link } from 'react-router-dom';
 
 import LoginForm from '../LoginForm';
 import SignupForm from '../SignupForm';
+import {loginDemo} from '../../store/session';
 
 // import '../../index.css';
 import './HomePage.css';
 
 const HomePage = ({isLoaded}) => {
+    const dispatch = useDispatch();
+
     const sessionUser = useSelector(state => state.session.user);
     const [clickedButton, setClickedButton] = useState(false)
     const [viewLogin, setViewLogin] = useState(false);
     const [viewSignup, setViewSignup] = useState(false);
     const [isDemo, setIsDemo] = useState(false);
 
+    const getDemo = async() => {
+        //to stop calling this function from  line 57
+        setIsDemo(false);
+        return dispatch(loginDemo('demo@user.com', 'password'))
+    }
+
     let sessionContent;
+
 
     if (sessionUser) {
         sessionContent = (
@@ -26,8 +36,8 @@ const HomePage = ({isLoaded}) => {
             <>
                 <div className='main-user-buttons'>
                     <button type='button' onClick={() => [setClickedButton(true), setViewLogin(true)]}>Login</button>
-                    {/* <button type='submit' onClick={handleSignup}>Create an Account</button>
-                    <button type='submit' onClick={handleDemo}>Demo Login</button> */}
+                    <button type='button' onClick={() => [setClickedButton(true), setViewSignup(true)]}>Create an Account</button>
+                    <button type='button' onClick={() => [setClickedButton(true), setIsDemo(true)]}>Demo Login</button>
                 </div>
             </>
         )
@@ -44,7 +54,16 @@ const HomePage = ({isLoaded}) => {
                 <SignupForm />
             </>
         )
+    } else if (clickedButton && isDemo) {
+        getDemo();
+        sessionContent = (
+            <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544668/favicon_2_xi1adp.png' />
+        )
     }
+
+
+
+
 
 
     return (

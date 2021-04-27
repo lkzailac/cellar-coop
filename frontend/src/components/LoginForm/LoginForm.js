@@ -20,7 +20,6 @@ const LoginForm = () => {
         e.preventDefault();
         setErrors([]);
 
-        console.log('from loginformjs', email, password)
         return dispatch(login({ email, password }))
             .catch(async (res) => {
                 const data = await res.json();
