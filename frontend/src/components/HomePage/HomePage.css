@@ -1,5 +1,7 @@
 .main-logo img {
     animation: rotation 10s infinite linear;
+    height: 10em;
+    width: auto
 }
 
 @keyframes rotation {
@@ -9,4 +11,25 @@
     to {
       transform: rotate(359deg);
     }
+}
+
+.main-headline h1{
+  font-family: 'Shippori Mincho', serif;
+  color: #b0a4a6
+}
+
+.main-tagline h2 {
+  font-family: bilo, sans-serif;
+  font-weight: 100;
+  font-style: italic;
+  color: #4c4c4c
+}
+
+header p {
+  font-family: bilo, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .1em;
+  color: #b0a4a6;
+  font-size: 1.5em;
 }

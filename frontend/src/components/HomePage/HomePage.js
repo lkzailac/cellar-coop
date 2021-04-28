@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import LoginForm from '../LoginForm';
 import SignupForm from '../SignupForm';
 import {loginDemo} from '../../store/session';
 
-// import '../../index.css';
+import '../../index.css';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -30,7 +30,7 @@ const HomePage = () => {
     if (sessionUser) {
         sessionContent = (
             <div className='main-logo'>
-                <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544668/favicon_2_xi1adp.png' />
+                <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619567844/icon-logo_ww1428.svg' />
             </div>
         )
     } else if (!sessionUser && !clickedButton ) {
@@ -96,7 +96,7 @@ const HomePage = () => {
                     </h2>
                 </div>
                 <div className='main-book-button'>
-                    <button><Link to='/api/items' /> Book a Look</button>
+                    <button type='button' onClick={() => window.location.href='/items'}>Book a Look</button>
                 </div>
             </main>
 

@@ -33,12 +33,27 @@ function Navigation({ isLoaded }){
     }
 
     return (
-      <ul>
-        <li>
-          <NavLink activeClassName='yellow' activeStyle={{color:'pink'}} exact to="/">Home</NavLink>
-        </li>
-        {isLoaded && sessionLinks}
-      </ul>
+      <nav>
+        <ul>
+          {/* {isLoaded && sessionLinks} */}
+          <li>
+            <div className='home-icon'>
+              <NavLink exact to='/'><img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619569429/home-icon_uhppxm.svg' /></NavLink>
+            </div>
+          </li>
+          <li>
+            <div className='item-icon'>
+              <NavLink to='/items'><img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619570332/item-icon_yeqtt6.svg' /></NavLink>
+            </div>
+          </li>
+          <li>
+            <div className='profile-icon'>
+              <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619570328/profile-icon_wb06p8.svg' />
+            </div>
+          </li>
+        </ul>
+      </nav>
+
     );
   }
 

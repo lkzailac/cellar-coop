@@ -1,4 +1,10 @@
 /* TODO Add site wide styles */
+.main-headline {
+    font-family: 'Shippori Mincho', serif;
+}
+
 * {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: bilo, sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
