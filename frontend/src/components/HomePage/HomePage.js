@@ -26,13 +26,16 @@ const HomePage = () => {
 
     useEffect(() => {
         if(!sessionUser) {
-            setClickedButton(false)
+            setClickedButton(false);
+            setViewSignup(false);
+            setViewLogin(false);
+            setIsDemo(false);
             history.push('/')
         }
     }, [sessionUser])
 
-    let sessionContent;
 
+    let sessionContent;
 
     if (sessionUser) {
         sessionContent = (
@@ -68,13 +71,13 @@ const HomePage = () => {
         sessionContent = (
             <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619544668/favicon_2_xi1adp.png' />
         )
-    } else if (!sessionUser) {
+    } else if (!sessionUser ) {
         sessionContent =(
             <>
                 <div className='main-user-buttons'>
                     <button type='button' onClick={() => [setClickedButton(true), setViewLogin(true)]}>Login</button>
                     <button type='button' onClick={() => [setClickedButton(true), setViewSignup(true)]}>Create an Account</button>
-                    <button type='button' onClick={() => [setClickedButton(true), setIsDemo(true)]}>Demo Login</button>
+                    <button type='button' onClick={() => [setClickedButton(true), setViewLogin(false), setViewSignup(false), setIsDemo(true)]}>Demo Login</button>
                 </div>
             </>
         )
