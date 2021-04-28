@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth');
 
 const {
     singleMulterUpload,
@@ -16,6 +16,7 @@ const { Item } = require('../../db/models');
 const { Designer } = require('../../db/models');
 const { Category } = require('../../db/models');
 const { Listing } = require('../../db/models');
+const { Booking } = require('../../db/models')
 
 
 //validate sign up
@@ -42,11 +43,35 @@ router.post('', validateSignup, asyncHandler( async(req, res) => {
 
 //Profile page Routes
 
-////Profile Page
-router.get('/:id', requireAuth, asyncHandler(async(res, req) => {
-    const myUser = await User.findByPk(req.params.id);
-
+////get Profile Page
+router.get('/:id', requireAuth, restoreUser, asyncHandler(async(res, req) => {
+    // const myUser = await User.findByPk(req.params.id);
+    console.log('req from route', req)
+    const id = req.params.id
+    console.log('the id', id)
+    const myUser = await User.findByPk(id);
+    console.log('myuser from api route', myUser)
     return res.json(myUser);
+}))
+
+//update user profile
+router.put('/:id', requireAuth, asyncHandler(async(res, req) => {
+
+    const id = parseInt(req.params.id, 10);
+    const user = await User.findByPk(id);
+    // console.log('request body user api route', req.body)
+    await user.update(req.body)
+}))
+
+// get user's bookings /users/:id/bookings
+router.get('/:id/bookings', requireAuth, asyncHandler( async(req, res) => {
+    const bookings = await Booking.findAll({
+        where: {
+            userId: req.params.id
+        }
+    });
+
+    return res.json(bookings);
 }))
 
 ////////Post route to Sell- creates new Item and new Listing
