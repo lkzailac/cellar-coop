@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 const SET_SESSION_USER = '/session/SET_SESSION_USER';
 const REMOVE_SESSION_USER = 'session/REMOVE_SESSION_USER';
-
+const LOAD_USER = 'session/LOAD_USER';
 
 
 
@@ -15,6 +15,11 @@ const setUser = (user) => ({
 const removeUser = () => ({
     type: REMOVE_SESSION_USER
 });
+
+const loadUser = (user) => ({
+    type: LOAD_USER,
+    user
+})
 
 //thunk action creators
 export const login = ({ email, password }) => async (dispatch) => {
@@ -61,9 +66,17 @@ export const signup = (user) => async dispatch => {
         })
     });
     const data = await res.json();
-    console.log('data from signup thunk', data);
     dispatch(setUser(data.user));
     return res;
+}
+
+export const userProfile = ({ myUser }) => async dispatch => {
+    const res = await csrfFetch(`/api/users/${myUser.id}`);
+
+    if(!res.ok) throw res;
+    const data = await res.json();
+    console.log('this user from session store', data.user)
+    dispatch(loadUser(data.user))
 }
 
 export const logout = () => async dispatch => {
@@ -88,6 +101,11 @@ const sessionReducer = (state = initialState, action) => {
         case REMOVE_SESSION_USER: {
             newState = Object.assign({}, state);
             newState.user = null;
+            return newState;
+        }
+        case LOAD_USER: {
+            newState = Object.assign({}, state);
+            newState.user = action.user;
             return newState;
         }
         default:

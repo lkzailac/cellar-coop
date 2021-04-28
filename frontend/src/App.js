@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navigation from './components/Navigation'
 import ItemsPage from './components/Items'
 import HomePage from './components/HomePage'
+import Profile from './components/Profile'
 import { restoreUser } from './store/session';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path='/items'>
             <ItemsPage />
+          </Route>
+          <Route path='/users/:id'>
+            <Profile />
           </Route>
         </Switch>
       )}

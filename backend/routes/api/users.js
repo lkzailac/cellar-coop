@@ -42,6 +42,13 @@ router.post('', validateSignup, asyncHandler( async(req, res) => {
 
 //Profile page Routes
 
+////Profile Page
+router.get('/:id', requireAuth, asyncHandler(async(res, req) => {
+    const myUser = await User.findByPk(req.params.id);
+
+    return res.json(myUser);
+}))
+
 ////////Post route to Sell- creates new Item and new Listing
 
 //validate new Item

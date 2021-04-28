@@ -8,7 +8,11 @@
     display: block;
 }
 
-.profile-dropdown-profile Link{
+.profile-dropdown-profile #link {
     text-decoration: none;
     color: #b0a4a6
+}
+
+.profile-dropdown-profile #link:hover {
+    color: #4c4c4c
 }

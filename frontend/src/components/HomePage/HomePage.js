@@ -30,7 +30,7 @@ const HomePage = () => {
             setViewSignup(false);
             setViewLogin(false);
             setIsDemo(false);
-            history.push('/')
+
         }
     }, [sessionUser])
 
