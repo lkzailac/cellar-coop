@@ -4,41 +4,31 @@ import {useDispatch} from 'react-redux';
 import * as sessionActions from '../../store/session';
 
 
-function ProfileButton({ user }) {
+function ProfileDropDown({ user }) {
     const dispatch = useDispatch();
-    const [showMenu, setShowMenu] = useState(false);
-
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
+    const [viewMenu, setViewMenu] = useState(true)
 
     useEffect(() => {
-        if (!showMenu) return;
 
         const closeMenu = () => {
-            setShowMenu(false);
+            setViewMenu(false);
         }
 
         document.addEventListener('click', closeMenu);
 
         return () => document.removeEventListener('click', closeMenu);
-    }, [showMenu])
+    }, [viewMenu])
 
     const logout = (e) => {
         e.preventDefault();
-
         dispatch(sessionActions.logout());
     };
 
     return (
         <>
-            <button onClick={openMenu}>
-                <i className='fas fa-user-circle' />
-            </button>
-            {showMenu && (
+
+            {viewMenu && (
                 <ul className='profile-dropdown'>
-                    <li>{user.username}</li>
                     <li>{user.email}</li>
                     <li>
                         <button onClick={logout}>Log Out</button>
@@ -50,4 +40,4 @@ function ProfileButton({ user }) {
 }
 
 
-export default ProfileButton;
+export default ProfileDropDown;

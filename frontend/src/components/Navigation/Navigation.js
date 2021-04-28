@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {NavLink} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import LoginForm from '../LoginForm';
-import ProfileButton from '../ProfileButton';
+import ProfileDropDown from '../ProfileDropDown';
 
 // import '../../index.css';
 import './Navigation.css';
@@ -11,11 +11,23 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }){
     const sessionUser = useSelector(state => state.session.user);
+    const [showMenu, setShowMenu] = useState(false);
+
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+    };
+
+    if(showMenu) {
+      return (
+        <ProfileDropDown user={sessionUser} />
+      )
+    }
 
     let sessionLinks;
     if (sessionUser) {
       sessionLinks = (
-        <ProfileButton user={sessionUser} />
+        <ProfileDropDown user={sessionUser} />
       );
     } else {
       sessionLinks = (
@@ -48,7 +60,7 @@ function Navigation({ isLoaded }){
           </li>
           <li>
             <div className='profile-icon'>
-              <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619570328/profile-icon_wb06p8.svg' />
+              <img onClick={openMenu} src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619570328/profile-icon_wb06p8.svg' />
             </div>
           </li>
         </ul>
