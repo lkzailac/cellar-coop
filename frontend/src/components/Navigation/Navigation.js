@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {NavLink} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import LoginForm from '../LoginForm';
+
 import ProfileDropDown from '../ProfileDropDown';
 
 // import '../../index.css';
@@ -18,31 +18,18 @@ function Navigation({ isLoaded }){
         setShowMenu(true);
     };
 
-    if(showMenu) {
-      return (
-        <ProfileDropDown user={sessionUser} />
-      )
-    }
+    useEffect(() => {
+      if (!showMenu) return;
 
-    let sessionLinks;
-    if (sessionUser) {
-      sessionLinks = (
-        <ProfileDropDown user={sessionUser} />
-      );
-    } else {
-      sessionLinks = (
-        <>
-            <li>
-                <LoginForm />
-                {/* <NavLink activeStyle={{color:'pink'}} to="/login">Log In</NavLink> */}
-            </li>
-            <li>
-                <NavLink activeStyle={{color:'pink'}} to="/signup">Sign Up</NavLink>
-            </li>
+      const closeMenu = () => {
+        setShowMenu(false);
+      }
+      document.addEventListener('click', closeMenu);
 
-        </>
-      );
-    }
+      return () => document.removeEventListener('click', closeMenu);
+    }, [showMenu])
+
+
 
     return (
       <nav>
@@ -62,6 +49,9 @@ function Navigation({ isLoaded }){
             <div className='profile-icon'>
               <img onClick={openMenu} src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619570328/profile-icon_wb06p8.svg' />
             </div>
+            {showMenu && sessionUser && (
+              <ProfileDropDown user={sessionUser} />
+            )}
           </li>
         </ul>
       </nav>

@@ -13,7 +13,6 @@ export const getItems = () => async dispatch => {
 
     if (!res.ok) throw res;
     const items = await res.json();
-    console.log('items from item store', items)
     dispatch(load(items));
 }
 

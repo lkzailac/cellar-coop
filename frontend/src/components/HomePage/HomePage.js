@@ -24,6 +24,12 @@ const HomePage = () => {
         return dispatch(loginDemo('demo@user.com', 'password'))
     }
 
+    useEffect(() => {
+        if(!sessionUser) return (
+            <Redirect to='/' />
+        );
+    }, [sessionUser])
+
     let sessionContent;
 
 

@@ -1,6 +1,67 @@
 /* css stuff for listings */
 
-.itemList-detail img {
-    width: 20px;
-    height: auto
+.sidebar h2 {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+    font-size: 1em;
+}
+
+
+
+.itemList-item {
+    display: inline-block;
+    margin-right: 2em;
+    margin-bottom: 1em;
+    border: 1px solid #d5d5d5;
+    border-radius: 1px;
+    background-color: white;
+    width: 13em;
+    height: 27em;
+
+}
+
+.image-container {
+    width: 13em;
+    height: 20em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.itemList-item img {
+    display: block;
+    margin: auto;
+    height: 200px;
+    width: auto;
+
+}
+
+.itemList-item-designer {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+    padding-top: .5em;
+    padding-left: 2em;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.itemList-item-size {
+    color: #b0a4a6;
+    font-weight: 300;
+    font-size: .7em;
+    letter-spacing: .05em;
+    padding-top: .05em;
+    padding-left: 3em;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.itemList-item-price {
+    color: #4c4c4c;
+    font-weight: 400;
+    font-size: .8em;
+    letter-spacing: .05em;
+    padding-top: .9em;
+    padding-left: 2.5em;
+    padding-bottom: 0;
+    margin: 0;
 }
