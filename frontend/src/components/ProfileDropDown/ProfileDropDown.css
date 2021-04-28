@@ -1,0 +1,14 @@
+.profile-dropdown {
+    position:absolute;
+    background-color: white;
+    padding-left: .5em;
+}
+
+.profile-dropdown li {
+    display: block;
+}
+
+.profile-dropdown-profile Link{
+    text-decoration: none;
+    color: #b0a4a6
+}

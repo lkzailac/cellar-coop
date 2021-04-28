@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
 import LoginForm from '../LoginForm';
 import SignupForm from '../SignupForm';
@@ -11,7 +11,7 @@ import './HomePage.css';
 
 const HomePage = () => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [clickedButton, setClickedButton] = useState(false)
     const [viewLogin, setViewLogin] = useState(false);
@@ -25,9 +25,10 @@ const HomePage = () => {
     }
 
     useEffect(() => {
-        if(!sessionUser) return (
-            <Redirect to='/' />
-        );
+        if(!sessionUser) {
+            setClickedButton(false)
+            history.push('/')
+        }
     }, [sessionUser])
 
     let sessionContent;
