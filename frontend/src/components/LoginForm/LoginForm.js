@@ -28,34 +28,38 @@ const LoginForm = () => {
     };
 
     return (
-        <form className='login-form' onSubmit={handleSubmit}>
-            <div className='login-validation-errors'>
-                <ul>
-                    {errors.map((error) =>
-                    <li key={error}>{error}</li>)}
-                </ul>
-            </div>
-            <label>
-                <input
-                    type='text'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    placeholder='Your Email'
-                />
-            </label>
-            <label>
+        <>
+            <form className='login-form' onSubmit={handleSubmit}>
+                <div className='login-validation-errors'>
+                    <ul>
+                        {errors.map((error) =>
+                        <li key={error}>{error}</li>)}
+                    </ul>
+                </div>
+                <label>
+                    <input
+                        type='text'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        placeholder='Your Email'
+                    />
+                </label>
+                <label>
 
-                <input
-                    type='password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    placeholder='Password'
-                />
-            </label>
-            <button className = 'login-button' type='submit'>Log In</button>
-        </form>
+                    <input
+                        type='password'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        placeholder='Password'
+                    />
+                </label>
+                <button className = 'login-button' type='submit'>Log In</button>
+
+            </form>
+            <button type='button' onClick={() => window.location.href='/'}>cancel</button>
+        </>
     )
 }
 
