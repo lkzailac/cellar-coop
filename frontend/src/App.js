@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 import Navigation from './components/Navigation'
-import ItemsPage from './components/Items'
+import ItemsPage from './components/ItemsPage'
 import HomePage from './components/HomePage'
-import Profile from './components/Profile'
+import ProfilePage from './components/ProfilePage'
 import { restoreUser } from './store/session';
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
             <ItemsPage />
           </Route>
           <Route path='/users/:id'>
-            <Profile />
+            <ProfilePage />
           </Route>
         </Switch>
       )}

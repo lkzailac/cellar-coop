@@ -11,7 +11,6 @@ import './HomePage.css';
 
 const HomePage = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [clickedButton, setClickedButton] = useState(false)
     const [viewLogin, setViewLogin] = useState(false);

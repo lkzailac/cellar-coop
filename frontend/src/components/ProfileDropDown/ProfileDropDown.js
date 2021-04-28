@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
-import { userProfile } from '../../store/session';
 
 import './ProfileDropDown.css';
 
