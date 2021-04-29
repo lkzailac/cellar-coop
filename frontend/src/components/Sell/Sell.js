@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-
-
-
 import { getListings, getDesigners } from '../../store/user';
 
+import './Sell.css'
 
 const Sell = () => {
     const dispatch = useDispatch();
@@ -91,10 +89,25 @@ const Sell = () => {
 
             </div>
 
+            <div className='listing-container'>
+                <h2>Listings</h2>
+                <div className='listing-items'>
+                    {listings?.map((listing) => (
+                        <>
+                            <img key={listing.id} src={listing.Item.photo}/>
+                            <p className='listing-designer'>{listing.Item.Designer.name}</p>
+                            <div className='listing-prices'>
+                                <p>{`rent for $${listing.Item.priceToRent_USD}`}</p>
+                                <p>{`buy for $${listing.Item.priceToBuy_USD}`}</p>
+                            </div>
 
-            <h2>Listings</h2>
+                        </>
+                    ))}
 
-                <p>{listings.itemId}</p>
+                </div>
+            </div>
+
+
 
         </>
     )

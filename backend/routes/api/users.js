@@ -90,10 +90,6 @@ router.get('/:id/listings', requireAuth, asyncHandler( async(req, res) => {
             include: [{model:Item, include: [{model:Designer}, {model:Category}]}],
 
         });
-        // console.log('listings from router', listings)
-        // const listedItems = listings.find(async (listing) => (await Item.findByPk(listing.itemId)))
-
-        // console.log('listedItems from router', listedItems)
         return res.json(listings);
     }
 }))

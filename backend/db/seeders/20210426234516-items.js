@@ -143,9 +143,9 @@ module.exports = {
           originalPrice_USD: 120,
           priceToRent_USD: 18,
           priceToBuy_USD: 28,
-          sizeSInventory: 44,
-          sizeMInventory: 82,
-          sizeLInventory: 28,
+          sizeSInventory: 0,
+          sizeMInventory: 1,
+          sizeLInventory: 0,
           designerId: 14,
           categoryId: 4
         },

@@ -19,26 +19,6 @@ const ItemsPage = () => {
     },[dispatch])
 
 
-    let sizeInfo;
-    const getSize = () => {
-
-
-        items?.map((item) => {
-            if(item.sizeSInventory > 0 && item.sizeMInventory > 0 && item.sizeLInventory > 0) {
-                sizeInfo = (
-                    <>Multiple Sizes</>
-                )
-            } else if (
-                (item.sizeSInventory === 0 && item.sizeMInventory === 0 && item.sizeLInventory > 0)
-                || (item.sizeSInventory === 0 && item.sizeMInventory > 0 && item.sizeLInventory === 0)
-                || (item.sizeSInventory > 0 && item.sizeMInventory === 0 && item.sizeLInventory === 0)
-                ) {
-                sizeInfo =(
-                    <>one size available</>
-                )
-            }
-        })
-    }
 
     // const gotoDetail = async (itemId) => {
     //     <Redirect to={`/items/${itemId}`} />
@@ -70,7 +50,7 @@ const ItemsPage = () => {
                                 </div>
                                 <div className='itemList-item-info'>
                                     <p className='itemList-item-designer'>{item.Designer.name}</p>
-                                    <p className='itemList-item-size'>{sizeInfo}</p>
+                                    <p className='itemList-item-size'>{(item.sizeSInventory > 0 && item.sizeMInventory > 0 && item.sizeLInventory > 0) ? <>Multiple Sizes</> : <>one size available</>}</p>
                                     <p className='itemList-item-price'>{`rent for $${item.priceToRent_USD}`}</p>
                                 </div>
 
