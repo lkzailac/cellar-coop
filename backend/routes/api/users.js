@@ -82,23 +82,27 @@ router.get('/:id/bookings', requireAuth, asyncHandler( async(req, res) => {
 router.get('/:id/listings', requireAuth, asyncHandler( async(req, res) => {
     const id = parseInt(req.params.id, 10);
 
-
     if(id) {
         const listings = await Listing.findAll({
-            include: [{model:Item, include: [{model:Designer}]}],
             where: {
                 userId: id
             },
+            // include: [{model:Item, include: [{model:Designer}]}],
+
         });
         console.log('listings from router', listings)
-        return res.json(listings);
+        const listedItems = listings.find(async (listing) => (await Item.findByPk(listing.itemId)))
+
+        console.log('listedItems from router', listedItems)
+        return res.json(listedItems);
     }
 }))
 
 //get designer list
-router.get('/designers', asyncHandler(async(req, res) => {
+router.get('/:id/designers', asyncHandler(async(req, res) => {
     const designers = await Designer.findAll();
 
+    console.log('designers from router', designers)
     return res.json(designers);
 }))
 

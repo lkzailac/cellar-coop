@@ -13,7 +13,7 @@ import './ProfilePage.css';
 const ProfilePage = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    console.log('user from session state', user)
+
     const userId = user.id;
     const [viewProfile, setViewProfile] = useState(true);
     const [viewBookings, setViewBookings] = useState(false);

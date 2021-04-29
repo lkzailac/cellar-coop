@@ -17,7 +17,7 @@ const Profile = () => {
 
 
     useEffect(() => {
-        console.log('user from profile state inside use effect', user)
+        // console.log('user from profile state inside use effect', user)
 
         // if (user) {
 
