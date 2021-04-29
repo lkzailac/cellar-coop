@@ -92,4 +92,15 @@ router.post('/listings', singleMulterUpload('photo'), validateItem, requireAuth,
     return res.json({ item })
 }));
 
+
+//delete created item
+// router.post('/:id', requireAuth, asyncHandler(async(req, res)=> {
+//     const { listingId } = req.body;
+//     console.log('listingid to delete from back end', listingId)
+
+//     await Item.destroy({ where: { itemId }})
+
+//     return res.json({ itemId });
+// }))
+
 module.exports = router;

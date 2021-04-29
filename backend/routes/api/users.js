@@ -90,6 +90,22 @@ router.get('/:id/listings', requireAuth, asyncHandler( async(req, res) => {
     }
 }))
 
+//delete created listing
+
+
+router.post('/listings/:id', requireAuth, asyncHandler(async(req, res)=> {
+    // const { listingId } = req.body;
+    // const id = parseInt(listingId, 10);
+
+    const id = parseInt(req.params.id, 10);
+
+    console.log('listingid to delete from back end', id)
+
+    await Listing.destroy({ where: { listingId }})
+
+    return res.json({ listingId });
+}))
+
 //get designer list
 router.get('/:id/designers', asyncHandler(async(req, res) => {
     const designers = await Designer.findAll();

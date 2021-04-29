@@ -5,7 +5,7 @@ const GET_USER = 'session/GET_USER'
 const SEE_BOOKING = 'session/SEE_BOOKING'
 const SEE_LISTING = 'session/SEE_LISTING'
 const SEE_DESIGNERS = 'session/SEE_DESIGNERS'
-
+const REMOVE_LISTING = 'session/REMOVE_ITEM'
 
 //action creators
 const getUser = (user) => ({
@@ -28,6 +28,10 @@ const seeDesigners = (designers) => ({
     designers
 })
 
+const removeListing = (listingId) => ({
+    type: REMOVE_LISTING,
+    listingId
+})
 
 
 //THUNKS
@@ -81,6 +85,23 @@ export const getListings = (userId) => async dispatch => {
     dispatch(seeListings(listings))
 }
 
+//delete listing
+export const deleteListing = (listingId) => async dispatch => {
+
+    console.log('listing to delete id from USER thunk', listingId)
+
+    const res = await csrfFetch(`/api/users/listings/${listingId}`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(listingId)
+    })
+
+    const listId = await res.json();
+    dispatch(removeListing(listId));
+}
+
 
 
 //get designers for sell dropdown
@@ -121,7 +142,11 @@ const userReducer = (state = initialState, action) => {
             newState.designers = action.designers;
             return newState;
         }
-
+        case REMOVE_LISTING: {
+            const newState = { ...state };
+            delete newState[action.listingId];
+            return newState;
+        }
         default:
             return state;
     }

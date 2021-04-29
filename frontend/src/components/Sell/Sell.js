@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getListings, getDesigners } from '../../store/user';
 import {listItem} from '../../store/items';
+import {deleteItem} from '../../store/items';
+import {deleteListing} from '../../store/user';
 
 import './Sell.css'
 
@@ -21,10 +23,7 @@ const Sell = () => {
     const [size, setSize] = useState('')
     const [description, setDescription] = useState('');
 
-    const [listingToDelete, setListingToDelete] = useState(null);
 
-    console.log('listings from sell component', listings)
-    console.log("designers from Sell",designers)
 
     //get listings
     useEffect(() => {
@@ -92,15 +91,28 @@ const Sell = () => {
         }
     }
 
+    //update photo
     const updateFile = (e) => {
         const file = e.target.files[0];
         if (file) setPhoto(file);
-      };
+    };
 
-    //delete listing and item
-    // const unlist = () => {
-    //     dispatch(deleteItem(listingToDelete))
-    // }
+    // delete listing and item
+    // useEffect(()=> {
+    //     dispatch(deleteItem(listingToDelete));
+    // }, [dispatch, deleteItem])
+
+    const deleteSell = async (listingId) => {
+        console.log('listing obj from sell', listingId);
+
+        if(listingId) {
+            // dispatch(deleteItem(listingId));
+            dispatch(deleteListing(listingId));
+        }
+
+    }
+
+
 
     return (
         <>
@@ -153,7 +165,7 @@ const Sell = () => {
                                 {listing.Item.sizeMInventory > 0 ? <> M</> : <></>}
                                 {listing.Item.sizeSInventory > 0 ? <> S</> : <></>}
                             </p>
-                            <button className='listing-unlist' type='button' value ={listing.id}onClick={(e) => setListingToDelete(e.target.value)}>Unlist</button>
+                            <button className='listing-unlist' type='button' value ={listing.id}onClick={(e) => deleteSell(e.target.value)}>Unlist</button>
                         </>
                     ))}
 

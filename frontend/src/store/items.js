@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const LOAD_ITEMS = "items/LOAD_ITEMS";
 const LOAD_ONE_ITEM = "items/LOAD_ONE_ITEM";
 const SET_ITEM = 'items/SET_ITEM';
+const REMOVE_ITEM = 'items/REMOVE_ITEM';
 
 const load = (items) => ({
     type: LOAD_ITEMS,
@@ -17,6 +18,11 @@ const loadOneItem= (item) => ({
 const setItem = (item) => ({
     type: SET_ITEM,
     item
+})
+
+const removeItem = (itemId) => ({
+    type: REMOVE_ITEM,
+    itemId
 })
 
 
@@ -42,7 +48,6 @@ export const listItem = (listingItem) => async dispatch => {
     const {userId, photo, description, originalPrice_USD, priceToRent_USD, priceToBuy_USD, sizeSInventory, sizeMInventory, sizeLInventory, designerId, category} = listingItem;
     const formData = new FormData();
 
-    console.log('listingitm from create item thunk', listingItem);
 
     formData.append("userId", userId);
     formData.append("description", description);
@@ -71,6 +76,26 @@ export const listItem = (listingItem) => async dispatch => {
 }
 
 
+//delete item
+// export const deleteItem = (listingId) => async dispatch => {
+
+//     console.log('item to delete id from ITEM thunk', listingId)
+
+//     const res = await csrfFetch(`/api/items/${listingId}`, {
+//         method: "POST",
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(listingId)
+//     })
+
+//     const itemId = await res.json();
+//     dispatch(removeItem(itemId));
+// }
+
+
+
+
 const initialState = { items: null }
 
 const itemsReducer = (state = initialState, action) => {
@@ -91,6 +116,11 @@ const itemsReducer = (state = initialState, action) => {
         case SET_ITEM: {
             newState = Object.assign({}, state);
             newState.items = action.item;
+            return newState;
+        }
+        case REMOVE_ITEM: {
+            const newState = { ...state };
+            delete newState[action.itemId];
             return newState;
         }
         default:
