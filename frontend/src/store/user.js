@@ -1,5 +1,5 @@
 import { csrfFetch } from './csrf';
-// import {SET_ITEM } from './items';
+import {SET_ITEM } from './items';
 
 const GET_USER = 'session/GET_USER'
 const SEE_BOOKING = 'session/SEE_BOOKING'
@@ -153,11 +153,11 @@ const userReducer = (state = initialState, action) => {
             newState.listings = newState.listings.filter((listing) => listing.id !== Number(action.listingId))
             return newState;
         }
-        // case SET_ITEM: {
-        //     newState = Object.assign({}, state);
-        //     newState.listings = action.item;
-        //     return newState;
-        // }
+        case SET_ITEM: {
+            newState = Object.assign({}, state);
+            newState.items = action.item;
+            return newState;
+        }
         default:
             return state;
     }

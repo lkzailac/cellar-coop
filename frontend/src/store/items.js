@@ -67,8 +67,9 @@ export const listItem = (listingItem) => async dispatch => {
     })
 
     const data = await res.json();
-    dispatch(setItem(data.listingItem))
-
+    console.log('data from new item thunk', data)
+    dispatch(setItem(data.item))
+    return data.item;
 }
 
 

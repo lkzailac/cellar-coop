@@ -77,6 +77,8 @@ const Sell = () => {
         };
 
         const newItem = await dispatch(listItem(listingItem));
+        console.log('new item', newItem)
+
         //if successful reset form values
         if(newItem) {
             setDesignerId(null)
@@ -96,19 +98,13 @@ const Sell = () => {
         if (file) setPhoto(file);
     };
 
-    // delete listing and item
-    // useEffect(()=> {
-    //     dispatch(deleteItem(listingToDelete));
-    // }, [dispatch, deleteItem])
+
 
     const deleteSell = async (listingId) => {
-        console.log('listing obj from sell', listingId);
 
         if(listingId) {
-            // dispatch(deleteItem(listingId));
             dispatch(deleteListing(listingId));
         }
-
     }
 
 
@@ -143,7 +139,7 @@ const Sell = () => {
                         <option className='sell-size-options' value='l'>Large</option>
                     </select>
                     <textarea className='sell-description' placeholder='Description' value={description} onChange={(e) => setDescription(e.target.value)}/>
-                    <button type='submit'>Save</button>
+                    <button type='submit' >Save</button>
                 </form>
 
             </div>

@@ -34,7 +34,10 @@ router.get('/:id', restoreUser, asyncHandler(async(req, res) => {
     console.log('item id from api', id);
 
     if(id ){
-        const myItem = await Item.findByPk(id);
+        const myItem = await Item.findOne({
+            where:id,
+            include: [{model:Designer}, {model:Category}],
+            });
 
         return res.json(myItem);
     }
