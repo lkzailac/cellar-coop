@@ -2,8 +2,8 @@ import { csrfFetch } from './csrf';
 
 const LOAD_ITEMS = "items/LOAD_ITEMS";
 const LOAD_ONE_ITEM = "items/LOAD_ONE_ITEM";
-const SET_ITEM = 'items/SET_ITEM';
 const REMOVE_ITEM = 'items/REMOVE_ITEM';
+export const SET_ITEM = 'items/SET_ITEM'
 
 const load = (items) => ({
     type: LOAD_ITEMS,
@@ -20,10 +20,6 @@ const setItem = (item) => ({
     item
 })
 
-const removeItem = (itemId) => ({
-    type: REMOVE_ITEM,
-    itemId
-})
 
 
 export const getItems = () => async dispatch => {
@@ -74,25 +70,6 @@ export const listItem = (listingItem) => async dispatch => {
     dispatch(setItem(data.listingItem))
 
 }
-
-
-//delete item
-// export const deleteItem = (listingId) => async dispatch => {
-
-//     console.log('item to delete id from ITEM thunk', listingId)
-
-//     const res = await csrfFetch(`/api/items/${listingId}`, {
-//         method: "POST",
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(listingId)
-//     })
-
-//     const itemId = await res.json();
-//     dispatch(removeItem(itemId));
-// }
-
 
 
 

@@ -14,12 +14,9 @@ const ItemDetail = () => {
     const item = items?.find((item) => item.id === id);
     console.log('the one item from itemdeatil', item);
 
-    // useEffect(() => {
-    //     if(item) {
-    //         // console.log('item from itemdetail comp', item)
-    //         dispatch(getOneItem(item.id))
-    //     }
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getOneItem(id))
+    }, [dispatch])
 
     return (
         <>

@@ -1,11 +1,13 @@
 import { csrfFetch } from './csrf';
-
+// import {SET_ITEM } from './items';
 
 const GET_USER = 'session/GET_USER'
 const SEE_BOOKING = 'session/SEE_BOOKING'
 const SEE_LISTING = 'session/SEE_LISTING'
 const SEE_DESIGNERS = 'session/SEE_DESIGNERS'
 const REMOVE_LISTING = 'session/REMOVE_ITEM'
+
+
 
 //action creators
 const getUser = (user) => ({
@@ -32,6 +34,8 @@ const removeListing = (listingId) => ({
     type: REMOVE_LISTING,
     listingId
 })
+
+
 
 
 //THUNKS
@@ -85,6 +89,8 @@ export const getListings = (userId) => async dispatch => {
     dispatch(seeListings(listings))
 }
 
+
+
 //delete listing
 export const deleteListing = (listingId) => async dispatch => {
 
@@ -95,11 +101,11 @@ export const deleteListing = (listingId) => async dispatch => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(listingId)
+        body: JSON.stringify({listingId})
     })
 
     const listId = await res.json();
-    dispatch(removeListing(listId));
+    dispatch(removeListing(listingId));
 }
 
 
@@ -144,9 +150,14 @@ const userReducer = (state = initialState, action) => {
         }
         case REMOVE_LISTING: {
             const newState = { ...state };
-            delete newState[action.listingId];
+            newState.listings = newState.listings.filter((listing) => listing.id !== Number(action.listingId))
             return newState;
         }
+        // case SET_ITEM: {
+        //     newState = Object.assign({}, state);
+        //     newState.listings = action.item;
+        //     return newState;
+        // }
         default:
             return state;
     }

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getListings, getDesigners } from '../../store/user';
 import {listItem} from '../../store/items';
-import {deleteItem} from '../../store/items';
 import {deleteListing} from '../../store/user';
 
 import './Sell.css'

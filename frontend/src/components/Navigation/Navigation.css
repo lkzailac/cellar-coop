@@ -1,4 +1,12 @@
+.nav-container {
+    position: relative;
+    width: 100%;
+}
+
 nav {
+    /* position: fixed; */
+    top: 1em;
+    width: 100%;
     background-color: #665965;
 
 }

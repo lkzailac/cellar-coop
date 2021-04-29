@@ -39,22 +39,23 @@ const ProfilePage = () => {
 
     return (
         <>
-            <header>
-                <div>
-                    <p>Rent. Sell. Buy.</p>
+            <div className='profile-container'>
+                <header>
+                    <div>
+                        <p>Rent. Sell. Buy.</p>
+                    </div>
+                </header>
+                <div className='sidebar'>
+                    <ul>
+                        <li><button type='button' onClick={() => [setViewProfile(true), setViewBookings(false), setViewSell(false)]}>Profile/Fit</button></li>
+                        <li><button type='button' onClick={() => [setViewProfile(false), setViewBookings(true), setViewSell(false)]}>Bookings</button></li>
+                        <li><button type='button' onClick={() => [setViewProfile(false), setViewBookings(false), setViewSell(true)]}>Sell</button></li>
+                    </ul>
                 </div>
-            </header>
-            <div className='sidebar'>
-                <ul>
-                    <li><button type='button' onClick={() => [setViewProfile(true), setViewBookings(false), setViewSell(false)]}>Profile/Fit</button></li>
-                    <li><button type='button' onClick={() => [setViewProfile(false), setViewBookings(true), setViewSell(false)]}>Bookings</button></li>
-                    <li><button type='button' onClick={() => [setViewProfile(false), setViewBookings(false), setViewSell(true)]}>Sell</button></li>
-                </ul>
+                <main>
+                    {sessionContent}
+                </main>
             </div>
-            <main>
-                {sessionContent}
-            </main>
-
         </>
     )
 }

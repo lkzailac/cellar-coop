@@ -98,12 +98,11 @@ router.post('/listings/:id', requireAuth, asyncHandler(async(req, res)=> {
 
    console.log('listingid to delete from back end', id)
 
-    const thisListing = Listing.findByPk(listingId);
+    const thisListing = await Listing.findByPk(listingId);
     const itemId = thisListing.itemId;
 
-    await Item.destroy({ where: { itemId }})
-
-    await Listing.destroy({ where: { listingId }})
+    await Listing.destroy({ where: { id: listingId }})
+    await Item.destroy({ where: { id: itemId }})
 
     return res.json({ listingId });
 }))
