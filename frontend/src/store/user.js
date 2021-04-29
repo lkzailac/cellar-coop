@@ -14,11 +14,12 @@ const getUser = (user) => ({
 // get user profile
 export const getProfile = ( userId ) => async dispatch => {
 
-    // console.log('userid from thunk', userId)
     const res = await csrfFetch(`/api/users/${userId}`);
 
     if(!res.ok) throw res;
     const user = await res.json();
+
+    console.log('user from userprofile thunk', user);
     dispatch(getUser(user))
 }
 

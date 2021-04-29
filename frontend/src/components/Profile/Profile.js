@@ -49,11 +49,11 @@ const Profile = () => {
             <div className='profile-info'>
                 <h2>Profile</h2>
                 <form onSubmit={handleProfileSave}>
-                    <div className='profile-email'><label>Email</label>{user.email}</div>
-                    {user.firstName? <li className='profile-firstName'><label>First Name</label>{user.firstName}</li> :
+                    <div className='profile-email'><label>Email</label>{user?.email}</div>
+                    {user?.firstName? <li className='profile-firstName'><label>First Name</label>{user.firstName}</li> :
                     <input type='text' placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
                     }
-                    {user.lastName? <li className='profile-lastName'><label>Last Name</label>{user.lastName}</li> :
+                    {user?.lastName? <li className='profile-lastName'><label>Last Name</label>{user.lastName}</li> :
                     <input type='text' placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)}/>
                     }
                     <button type="submit">Save</button>
