@@ -50,8 +50,8 @@ const Sell = () => {
         let sizeLInventory;
         if(size === 's') {
             sizeSInventory = 1;
-            sizeMInventory = 1;
-            sizeLInventory = 1;
+            sizeMInventory = 0;
+            sizeLInventory = 0;
         }
         if(size === 'm') {
             sizeSInventory = 0;

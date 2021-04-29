@@ -80,7 +80,8 @@ router.post('/listings', singleMulterUpload('photo'), validateItem, requireAuth,
         categoryId
     })
 
-    const itemId = await Item.findOne({ where: {description}})
+    const newItem = await Item.findOne({ where: {description}})
+    const itemId = newItem.id
 
     //create new Listing
     await Listing.create({
