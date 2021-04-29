@@ -6,6 +6,7 @@ const SEE_BOOKING = 'session/SEE_BOOKING'
 const SEE_LISTING = 'session/SEE_LISTING'
 const SEE_DESIGNERS = 'session/SEE_DESIGNERS'
 
+
 //action creators
 const getUser = (user) => ({
     type: GET_USER,
@@ -26,6 +27,7 @@ const seeDesigners = (designers) => ({
     type: SEE_DESIGNERS,
     designers
 })
+
 
 
 //THUNKS
@@ -79,6 +81,8 @@ export const getListings = (userId) => async dispatch => {
     dispatch(seeListings(listings))
 }
 
+
+
 //get designers for sell dropdown
 export const getDesigners = (userId) => async dispatch => {
 
@@ -117,6 +121,7 @@ const userReducer = (state = initialState, action) => {
             newState.designers = action.designers;
             return newState;
         }
+
         default:
             return state;
     }

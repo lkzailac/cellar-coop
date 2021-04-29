@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_ITEMS = "items/LOAD_ITEMS";
 const LOAD_ONE_ITEM = "items/LOAD_ONE_ITEM";
+const SET_ITEM = 'items/SET_ITEM';
 
 const load = (items) => ({
     type: LOAD_ITEMS,
@@ -12,6 +13,12 @@ const loadOneItem= (item) => ({
     type: LOAD_ONE_ITEM,
     item
 })
+
+const setItem = (item) => ({
+    type: SET_ITEM,
+    item
+})
+
 
 export const getItems = () => async dispatch => {
     const res = await csrfFetch('/api/items');
@@ -30,6 +37,40 @@ export const getOneItem = (itemId) => async dispatch => {
     dispatch(loadOneItem(item));
 }
 
+//create an item
+export const listItem = (listingItem) => async dispatch => {
+    const {userId, photo, description, originalPrice_USD, priceToRent_USD, priceToBuy_USD, sizeSInventory, sizeMInventory, sizeLInventory, designerId, category} = listingItem;
+    const formData = new FormData();
+
+    console.log('listingitm from create item thunk', listingItem);
+
+    formData.append("userId", userId);
+    formData.append("description", description);
+    formData.append("originalPrice_USD", originalPrice_USD);
+    formData.append("priceToRent_USD", priceToRent_USD);
+    formData.append("priceToBuy_USD", priceToBuy_USD);
+    formData.append("sizeSInventory", sizeSInventory);
+    formData.append("sizeMInventory", sizeMInventory);
+    formData.append("sizeLInventory", sizeLInventory);
+    formData.append("designerId", designerId);
+    formData.append("category", category);
+
+    if(photo) formData.append('photo', photo);
+
+    const res = await csrfFetch(`/api/items/listings`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData
+    })
+
+    const data = await res.json();
+    dispatch(setItem(data.listingItem))
+
+}
+
+
 const initialState = { items: null }
 
 const itemsReducer = (state = initialState, action) => {
@@ -42,8 +83,14 @@ const itemsReducer = (state = initialState, action) => {
             return newState;
         }
         case LOAD_ONE_ITEM: {
+            // newState = Object.assign({}, state);
+            // newState.items = action.item;
+            // return newState;
+            return {...state, item: action.item}
+        }
+        case SET_ITEM: {
             newState = Object.assign({}, state);
-            newState.item = action.item;
+            newState.items = action.item;
             return newState;
         }
         default:
