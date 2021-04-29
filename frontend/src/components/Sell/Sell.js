@@ -93,6 +93,9 @@ const Sell = () => {
 
 
             <h2>Listings</h2>
+
+                <p>{listings.itemId}</p>
+
         </>
     )
 }

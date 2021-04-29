@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
+import {Link } from 'react-router-dom'
 
 import { getItems } from '../../store/items';
 
@@ -62,17 +63,19 @@ const ItemsPage = () => {
                 <div className='itemList'>
 
                     {items?.map((item) => (
-                        <div key={item.id} className='itemList-item' onClick={() => window.location.href=`/items/${item.id}`}>
-                            <div className='image-container'>
-                                <img src={`${item.photo}`} alt={item.Category.name} />
-                            </div>
-                            <div className='itemList-item-info'>
-                                <p className='itemList-item-designer'>{item.Designer.name}</p>
-                                <p className='itemList-item-size'>{sizeInfo}</p>
-                                <p className='itemList-item-price'>{`rent for $${item.priceToRent_USD}`}</p>
-                            </div>
+                        <Link to={`/items/${item.id}`}>
+                            <div key={item.id} className='itemList-item' >
+                                <div className='image-container'>
+                                    <img src={`${item.photo}`} alt={item.Category.name} />
+                                </div>
+                                <div className='itemList-item-info'>
+                                    <p className='itemList-item-designer'>{item.Designer.name}</p>
+                                    <p className='itemList-item-size'>{sizeInfo}</p>
+                                    <p className='itemList-item-price'>{`rent for $${item.priceToRent_USD}`}</p>
+                                </div>
 
-                        </div>
+                            </div>
+                        </Link>
                     ))}
 
 
@@ -89,7 +92,7 @@ const ItemsPage = () => {
 
 
 
-
+// onClick={() => window.location.href=}
 
 
 export default ItemsPage;

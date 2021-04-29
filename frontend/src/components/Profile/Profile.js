@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 
 import {updateProfile} from '../../store/user';
-import { getProfile } from '../../store/user'
+
 
 const Profile = () => {
     const user = useSelector(state => state.user.userProfile);
@@ -14,17 +14,6 @@ const Profile = () => {
     const [height, setHeight] = useState(0);
     const [weight, setWeight] = useState(0);
     const [dressSize, setDressSize] = useState('');
-
-
-    useEffect(() => {
-        // console.log('user from profile state inside use effect', user)
-
-        // if (user) {
-
-        //     dispatch(getProfile(user))
-        // }
-
-    }, [user])
 
 
     const handleProfileSave = async (e) => {

@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import{ useParams} from 'react-router-dom'
 
+import { getOneItem } from '../../store/items';
 
+import './ItemDetail.css';
 
 const ItemDetail = () => {
+    const dispatch = useDispatch();
+    const items = useSelector(state => state.items.items)
+    let { id } = useParams();
+    console.log('items from itemdetail comp', items)
+    const item = items?.find((item) => item.id === id);
+    console.log('the one item from itemdeatil', item);
+
+    // useEffect(() => {
+    //     if(item) {
+    //         // console.log('item from itemdetail comp', item)
+    //         dispatch(getOneItem(item.id))
+    //     }
+    // }, [dispatch])
 
     return (
         <>

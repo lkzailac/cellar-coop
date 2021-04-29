@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     itemId: DataTypes.INTEGER
   }, {});
   Listing.associate = function(models) {
-    // associations can be defined here
+    Listing.belongsTo(models.User, {foreignKey: 'userId'});
+    Listing.belongsTo(models.Item, {foreignKey: 'itemId'})
   };
   return Listing;
 };

@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Item.associate = function(models) {
     //many to many users
-    Item.belongsToMany(models.User, {through: "Listing", foreignKey: 'itemId', otherKey: 'userId'})
+    // Item.belongsToMany(models.User, {through: "Listing", foreignKey: 'itemId', otherKey: 'userId'})
+    Item.hasOne(models.Listing, {foreignKey: 'itemId'})
     //one to many
     Item.belongsTo(models.Designer, {foreignKey: 'designerId'});
     Item.belongsTo(models.Category, { foreignKey: 'categoryId'});
