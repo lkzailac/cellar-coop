@@ -86,7 +86,6 @@ export const getDesigners = (userId) => async dispatch => {
 
     if(!res.ok) throw res;
     const designers = await res.json();
-    console.log('designers from thunk', designers)
     dispatch(seeDesigners(designers))
 }
 
