@@ -11,7 +11,6 @@ const ItemsPage = () => {
     const dispatch = useDispatch();
     const items = useSelector(state => state.items.items);
 
-    console.log('items from front end', items);
 
     useEffect(() => {
         dispatch(getItems())

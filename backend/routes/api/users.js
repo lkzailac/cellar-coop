@@ -44,18 +44,19 @@ router.post('', validateSignup, asyncHandler( async(req, res) => {
 //Profile page Routes
 
 ////get Profile Page
-router.get('/:id', requireAuth, restoreUser, asyncHandler(async(res, req) => {
-    // const myUser = await User.findByPk(req.params.id);
-    console.log('req from route', req)
-    const id = req.params.id
-    console.log('the id', id)
-    const myUser = await User.findByPk(id);
-    console.log('myuser from api route', myUser)
-    return res.json(myUser);
+router.get('/:id', requireAuth, restoreUser, asyncHandler(async(req, res) => {
+    const id = parseInt(req.params.id, 10)
+    if(id ){
+        const myUser = await User.findByPk(id);
+        console.log('myuser from api route', myUser);
+        return res.json(myUser);
+    }
+
+
 }))
 
 //update user profile
-router.put('/:id', requireAuth, asyncHandler(async(res, req) => {
+router.put('/:id', requireAuth, asyncHandler(async(req, res) => {
 
     const id = parseInt(req.params.id, 10);
     const user = await User.findByPk(id);
