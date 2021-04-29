@@ -48,7 +48,6 @@ router.get('/:id', requireAuth, restoreUser, asyncHandler(async(req, res) => {
     const id = parseInt(req.params.id, 10)
     if(id ){
         const myUser = await User.findByPk(id);
-        console.log('myuser from api route', myUser);
         return res.json(myUser);
     }
 
@@ -66,14 +65,44 @@ router.put('/:id', requireAuth, asyncHandler(async(req, res) => {
 
 // get user's bookings /users/:id/bookings
 router.get('/:id/bookings', requireAuth, asyncHandler( async(req, res) => {
-    const bookings = await Booking.findAll({
-        where: {
-            userId: req.params.id
-        }
-    });
+    const id = parseInt(req.params.id, 10);
 
-    return res.json(bookings);
+    if(id) {
+        const bookings = await Booking.findAll({
+            include: [{model:Item, include: [{model:Designer}]}],
+            where: {
+                userId: id
+            },
+        });
+        return res.json(bookings);
+    }
 }))
+
+//get user's listings
+router.get('/:id/listings', requireAuth, asyncHandler( async(req, res) => {
+    const id = parseInt(req.params.id, 10);
+
+
+    if(id) {
+        const listings = await Listing.findAll({
+            include: [{model:Item, include: [{model:Designer}]}],
+            where: {
+                userId: id
+            },
+        });
+        console.log('listings from router', listings)
+        return res.json(listings);
+    }
+}))
+
+//get designer list
+router.get('/designers', asyncHandler(async(req, res) => {
+    const designers = await Designer.findAll();
+
+    return res.json(designers);
+}))
+
+
 
 ////////Post route to Sell- creates new Item and new Listing
 

@@ -4,11 +4,10 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Bookings', [{
         size: 'm',
-        startDate: '2038-01-19 03:14:07 UTC',
-        returnDate: '2021-01-19 03:14:07 UTC',
+        startDate: '05/12/2021',
+        returnDate: '06/12/2021',
         rent: true,
         buy: false,
-        price_USD: 24,
         itemId: 1,
         userId: 1
       }], {});

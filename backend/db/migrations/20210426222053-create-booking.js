@@ -13,11 +13,11 @@ module.exports = {
         allowNull: false
       },
       startDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING(10),
         allowNull: false,
       },
       returnDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING(10),
         allowNull: false,
       },
       rent: {
@@ -29,10 +29,6 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false
-      },
-      price_USD: {
-        type: Sequelize.INTEGER,
-        allowNull: false
       },
       itemId: {
         type: Sequelize.INTEGER,

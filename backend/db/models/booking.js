@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     startDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING(10),
       allowNull: false,
     },
     returnDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING(10),
       allowNull: false,
     },
     rent: {
@@ -22,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-    },
-    price_USD: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     },
     itemId: {
       type: DataTypes.INTEGER,
