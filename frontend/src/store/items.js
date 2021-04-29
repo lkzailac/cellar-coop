@@ -1,16 +1,16 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_ITEMS = "items/LOAD_ITEMS";
-const LOAD_BOOKINGS = "items/LOAD_BOOKINGS";
+const LOAD_ONE_ITEM = "items/LOAD_ONE_ITEM";
 
 const load = (items) => ({
     type: LOAD_ITEMS,
     items
 })
 
-const loadBookings = (bookings) => ({
-    type: LOAD_BOOKINGS,
-    bookings
+const loadOneItem= (item) => ({
+    type: LOAD_ONE_ITEM,
+    item
 })
 
 export const getItems = () => async dispatch => {
@@ -21,13 +21,13 @@ export const getItems = () => async dispatch => {
     dispatch(load(items));
 }
 
-//user bookings thunk
-export const getBookings = (user) => async dispatch => {
-    const res = await csrfFetch(`/api/users/${user.id}/bookings`);
+// go to one item's detail page
+export const getOneItem = (itemId) => async dispatch => {
+    const res = await csrfFetch(`/api/items/${itemId}`);
 
     if (!res.ok) throw res;
-    const bookings = await res.json();
-    dispatch(loadBookings(bookings));
+    const item = await res.json();
+    dispatch(loadOneItem(item));
 }
 
 const initialState = { items: null }
@@ -41,9 +41,9 @@ const itemsReducer = (state = initialState, action) => {
             newState.items = action.items;
             return newState;
         }
-        case LOAD_BOOKINGS: {
+        case LOAD_ONE_ITEM: {
             newState = Object.assign({}, state);
-            newState.bookings = action.bookings;
+            newState.item = action.item;
             return newState;
         }
         default:

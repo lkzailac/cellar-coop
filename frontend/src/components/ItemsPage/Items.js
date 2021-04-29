@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
 
 import { getItems } from '../../store/items';
 
@@ -38,7 +39,9 @@ const ItemsPage = () => {
         })
     }
 
-    console.log('size', getSize())
+    // const gotoDetail = async (itemId) => {
+    //     <Redirect to={`/items/${itemId}`} />
+    // }
 
     return (
         <>
@@ -59,7 +62,7 @@ const ItemsPage = () => {
                 <div className='itemList'>
 
                     {items?.map((item) => (
-                        <div key={item.id} className='itemList-item'>
+                        <div key={item.id} className='itemList-item' onClick={() => window.location.href=`/items/${item.id}`}>
                             <div className='image-container'>
                                 <img src={`${item.photo}`} alt={item.Category.name} />
                             </div>

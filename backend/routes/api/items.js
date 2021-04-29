@@ -18,4 +18,14 @@ router.get('/', restoreUser, asyncHandler(async(req, res) => {
     return res.json(items);
 }))
 
+//get one item detail
+router.get('/:id', restoreUser, asyncHandler(async(req, res) => {
+    const id = parseInt(req.params.id);
+
+    if(id ){
+        const myItem = await Item.findByPk(id);
+        return res.json(myItem);
+    }
+}))
+
 module.exports = router;
