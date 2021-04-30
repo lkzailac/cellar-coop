@@ -14,6 +14,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([])
+    const [loggingIn, setLoggingIn] =useState(true)
 
 
     const handleSubmit = async(e) => {
@@ -27,7 +28,7 @@ const LoginForm = () => {
             })
     };
 
-    return (
+    return ( loggingIn &&
         <>
             <form className='login-form' onSubmit={handleSubmit}>
                 <div className='login-validation-errors'>
@@ -58,10 +59,13 @@ const LoginForm = () => {
                 <button className = 'login-button' type='submit'>Log In</button>
 
             </form>
-            <button type='button' onClick={() => window.location.href='/'}>cancel</button>
+            <button className = 'cancel-button' type='button' onClick={() => window.location.href='/'}>cancel</button>
         </>
     )
 }
 
+
+// onClick={() => window.location.href='/'}
+// onClick={() => setLoggingIn(false)}
 
 export default LoginForm;

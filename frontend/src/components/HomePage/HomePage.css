@@ -31,11 +31,20 @@ main {
   grid-template-rows: repeat(9 1fr);
 
 }
+
+.main-logo {
+  background-color: white;
+  width: 10em;
+  padding: 5em;
+  box-shadow: 1px 2px 4px #4c4c4c20;
+  margin-right: 5em;
+
+}
 .main-logo img {
     animation: rotation 10s infinite linear;
     height: 10em;
     width: auto;
-    margin-right: 5.2em;
+    margin-right:3em;
 }
 
 @keyframes rotation {

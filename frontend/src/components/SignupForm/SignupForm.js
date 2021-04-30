@@ -59,9 +59,9 @@ const SignupForm = () => {
                     <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='Password'/>
                     <input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required placeholder='Confirm Password'/>
                 </div>
-                <button type='submit'>Create Account</button>
+                <button className='signup-button' type='submit'>Create Account</button>
             </form>
-            <button type='button' onClick={() => window.location.href='/'}>cancel</button>
+            <button className='cancel-button' type='button' onClick={() => window.location.href='/'}>cancel</button>
         </>
     )
 }
