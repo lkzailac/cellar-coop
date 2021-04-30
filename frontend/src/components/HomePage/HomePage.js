@@ -88,14 +88,17 @@ const HomePage = () => {
         <>
             <header>
                 <div>
-                    <p>Rent. Sell. Buy.</p>
+                    <p>Rent.   Sell.   Buy.</p>
                 </div>
+                <div className='header-underline' />
             </header>
             <main>
                 <div className='main-images'>
                     <img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619559236/hom-images_ycck9e.svg'/>
                 </div>
-                {sessionContent}
+                <div className= 'session-content'>
+                    {sessionContent}
+                </div>
                 <div className='main-headline'>
                     <h1>Update your closet, without the carbon footprint.</h1>
                 </div>
@@ -104,10 +107,11 @@ const HomePage = () => {
                         With rentals starting at up to 90% off retail, your wallet and the planet will thank you.
                     </h2>
                 </div>
-                <div className='main-book-button'>
-                    <button type='button' onClick={() => window.location.href='/items'}>Book a Look</button>
-                </div>
+
             </main>
+            <div className='main-book-button'>
+                <button type='button' onClick={() => window.location.href='/items'}>Book a Look</button>
+            </div>
 
         </>
     )

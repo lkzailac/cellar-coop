@@ -9,10 +9,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    top: 8em;
+    top: 10em;
     height: 2.5em;
     width: 100%;
     background-color: #665965;
+}
+
+.logo {
+    width: 13em;
+    grid-column-start: 1;
+    justify-self: end;
+    margin-top: 1.2em;
 }
 
 nav {

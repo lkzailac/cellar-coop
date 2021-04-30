@@ -34,9 +34,9 @@ function Navigation({ isLoaded }){
     return (
       <div className='nav-container'>
           <div class='nav-div'>
+            <img className='logo' src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619744935/logo_wikwix.png'/>
             <nav>
               <ul>
-                {/* {isLoaded && sessionLinks} */}
                 <li>
                   <div className='home-icon'>
                     <NavLink exact to='/'><img src='https://res.cloudinary.com/dbu0tmeuc/image/upload/v1619569429/home-icon_uhppxm.svg' /></NavLink>

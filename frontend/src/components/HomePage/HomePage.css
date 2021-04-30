@@ -1,3 +1,36 @@
+header {
+  margin-top: 5em;
+  position: relative;
+}
+header p {
+  position: absolute;
+  top: -2.5em;
+  right: 9em;
+  font-family: bilo, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .1em;
+  color: #b0a4a6;
+  font-size: 1.5em;
+
+}
+
+.header-underline {
+  height: .1em;
+  width: 80%;
+  background-color: #b0a4a680;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+
+main {
+  margin-top: 4em;
+  display: grid;
+  grid-template-columns: repeat(5 200px);
+  grid-template-rows: repeat(9 1fr);
+
+}
 .main-logo img {
     animation: rotation 10s infinite linear;
     height: 10em;
@@ -13,23 +46,68 @@
     }
 }
 
+.main-images {
+  width: 68em;
+  height: auto;
+  grid-row-start: 2;
+  grid-row-end: 7;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-left: 8em;
+}
+
+.main-headline {
+  grid-row-start: 7;
+  grid-column: 1 / span 4;
+}
+
 .main-headline h1{
   font-family: 'Shippori Mincho', serif;
-  color: #b0a4a6
+  color: #b0a4a690;
+  font-size: 2em;
+  letter-spacing: .07em;
+  margin-left: 4em;
+  margin-bottom: 0;
+}
+
+.main-tagline {
+  grid-row-start: 8;
+  grid-column-start: 1;
+
 }
 
 .main-tagline h2 {
   font-family: bilo, sans-serif;
   font-weight: 100;
   font-style: italic;
-  color: #4c4c4c
+  color: #4c4c4c;
+  margin-left: 6.5em;
+  font-size: 1.2em;
+  margin-top: .4em;
 }
 
-header p {
-  font-family: bilo, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: .1em;
-  color: #b0a4a6;
+.session-content {
+  grid-column: 3 /span 2;
+  grid-row: 3 / span 3
+}
+
+.main-book-button {
+  /* grid-column: 2 /span 2;
+  grid-row-start: 9; */
+  width: 100%;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-book-button button {
+  background-color: #ffd5ca;
+  width: 10.2em;
+  height: 1.8em;
   font-size: 1.5em;
+  font-weight: 400;
+  color: #b0a4a6;
+  border: none;
+  margin-left: 30em;
+  margin-right: auto;
 }
