@@ -57,45 +57,75 @@ const bcrypt = require('bcryptjs');
 // createUsers();
 
 ////// Fake Items
-function randomNum() {
-    let num = Math.trunc(Math.random() * 100)
-    return num;
-}
+// function randomNum() {
+//     let num = Math.trunc(Math.random() * 100)
+//     return num;
+// }
 
-function randomDesigner() {
-    return Math.floor(Math.random() * 20) + 1;
-}
+// function randomDesigner() {
+//     return Math.floor(Math.random() * 20) + 1;
+// }
 
 
 
-const createItems = async function() {
-    let itemsArray = [];
+// const createItems = async function() {
+//     let itemsArray = [];
 
-    for (let i = 0; i < 20; i++) {
-        let item = {
-            photo: 'url',
-            description: faker.lorem.paragraph(),
-            originalPrice_USD: randomNum() + 100,
-            priceToRent_USD: null,
-            priceToBuy_USD: null,
-            sizeSInventory: randomNum(),
-            sizeMInventory: randomNum(),
-            sizeLInventory: randomNum(),
-            designerId: randomDesigner(),
-            categoryId: "categoty"
-        }
+//     for (let i = 0; i < 20; i++) {
+//         let item = {
+//             photo: 'url',
+//             description: faker.lorem.paragraph(),
+//             originalPrice_USD: randomNum() + 100,
+//             priceToRent_USD: null,
+//             priceToBuy_USD: null,
+//             sizeSInventory: randomNum(),
+//             sizeMInventory: randomNum(),
+//             sizeLInventory: randomNum(),
+//             designerId: randomDesigner(),
+//             categoryId: "categoty"
+//         }
 
-        let rent = await item.originalPrice_USD;
-        // console.log('rent', Math.ceil(rent / 7))
-        // let rent = await item.originalPrice_USD ;
-        item.priceToRent_USD = Math.ceil(rent / 7);
-        // console.log(await item.priceToRent_USD);
-        let buy = await item.priceToRent_USD;
-        item.priceToBuy_USD = buy + 10;
-        itemsArray.push(item)
-    }
-    console.log(itemsArray)
-    return itemsArray;
-}
+//         let rent = await item.originalPrice_USD;
+//         // console.log('rent', Math.ceil(rent / 7))
+//         // let rent = await item.originalPrice_USD ;
+//         item.priceToRent_USD = Math.ceil(rent / 7);
+//         // console.log(await item.priceToRent_USD);
+//         let buy = await item.priceToRent_USD;
+//         item.priceToBuy_USD = buy + 10;
+//         itemsArray.push(item)
+//     }
+//     console.log(itemsArray)
+//     return itemsArray;
+// }
 
-createItems()
+// createItems()
+
+
+// let startDate = '12/06/2021'
+
+// const toReturn = (date) => {
+//     let arr = startDate.split('/');
+
+//     let numArr = arr.map((d) => Number(d))
+//     if(numArr[0] < 12) {
+//         numArr[0] = numArr[0] + 1
+
+//     } else {
+//         numArr[0] = 1
+//         numArr[2] = numArr[2] + 1
+//     }
+//     let arrStr = numArr.map((d) => (
+//         d.toString()
+//     ))
+//     if(arrStr[0].length < 2) {
+//         arrStr[0] = 0 + arrStr[0]
+//     }
+//     if(arrStr[1].length < 2) {
+//         arrStr[1] = 0 + arrStr[1]
+//     }
+//     let newDate = arrStr.join('/')
+
+//     return newDate;
+// }
+
+// toReturn(startDate)

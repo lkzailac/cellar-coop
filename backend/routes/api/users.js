@@ -59,7 +59,7 @@ router.put('/:id', requireAuth, asyncHandler(async(req, res) => {
     await user.update(req.body)
 }))
 
-// get user's bookings /users/:id/bookings
+// get user's bookings
 router.get('/:id/bookings', requireAuth, asyncHandler( async(req, res) => {
     const id = parseInt(req.params.id, 10);
 
@@ -72,6 +72,18 @@ router.get('/:id/bookings', requireAuth, asyncHandler( async(req, res) => {
         });
         return res.json(bookings);
     }
+}))
+
+//post new booking
+router.post('/book', requireAuth, asyncHandler( async(req, res) => {
+    const { size, startDate, returnDate, rent, buy, itemId, userId } = req.body;
+
+    console.log('req body from route ', req.body)
+    const newBooking = await Booking.create({
+        size, startDate, returnDate, rent, buy, itemId, userId
+    })
+
+    return res.json(newBooking)
 }))
 
 //get user's listings

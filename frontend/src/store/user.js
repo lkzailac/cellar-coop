@@ -78,6 +78,21 @@ export const getBookings = (userId) => async dispatch => {
     dispatch(seeBookings(bookings))
 }
 
+//new booking
+export const bookItem = (booking) => async dispatch => {
+
+    console.log('booking from THUNK', booking)
+
+    const res = await csrfFetch('/api/users/book', {
+        method: "POST",
+        body: JSON.stringify(booking),
+        headers: { 'Content-Type': 'application/json' }
+    })
+
+    if (!res.ok) throw res;
+    await res.json();
+}
+
 //get listings
 export const getListings = (userId) => async dispatch => {
 

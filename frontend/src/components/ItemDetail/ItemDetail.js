@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import{ useParams} from 'react-router-dom'
 
 import { getOneItem } from '../../store/items';
+import { bookItem } from '../../store/user';
 
 import './ItemDetail.css';
 
@@ -10,13 +11,44 @@ import './ItemDetail.css';
 const ItemDetail = () => {
     const dispatch = useDispatch();
     const item = useSelector(state => state.items.item)
+    const user = useSelector(state => state.session.user);
+    const userId = user.id;
     let { id } = useParams();
 
     const [size, setSize] = useState('')
     const [startDate, setStartDate] = useState('')
-    const [rented, setRented] = useState(false);
-    const [bought, setBought] = useState(false);
+    const [returnDate, setReturnDate] = useState('')
+    const [rent, setRent] = useState(false);
+    const [buy, setBuy] = useState(false);
 
+
+    // useEffect((startDate) => {
+    //     if(startDate) {
+    //         let arr = startDate.split('/');
+
+    //     let numArr = arr.map((d) => Number(d))
+    //         if(numArr[0] < 12) {
+    //          numArr[0] = numArr[0] + 1
+
+    //     } else {
+    //         numArr[0] = 1
+    //         numArr[2] = numArr[2] + 1
+    //     }
+    //     let arrStr = numArr.map((d) => (
+    //         d.toString()
+    //        ))
+    //     if(arrStr[0].length < 2) {
+    //         arrStr[0] = 0 + arrStr[0]
+    //     }
+    //     if(arrStr[1].length < 2) {
+    //         arrStr[1] = 0 + arrStr[1]
+    //     }
+    //     let newDate = arrStr.join('/')
+    //     setReturnDate(newDate);
+    //     }
+
+
+    // }, [startDate])
 
     useEffect(() => {
         dispatch(getOneItem(id))
@@ -26,16 +58,97 @@ const ItemDetail = () => {
     //Buy
     const handleBuy = async(e) => {
         e.preventDefault();
+        setBuy(true)
+
+        const toReturn = (startDate) => {
+            if(startDate) {
+                let arr = startDate.split('/');
+
+            let numArr = arr.map((d) => Number(d))
+            if(numArr[0] < 12) {
+                numArr[0] = numArr[0] + 1
+            } else {
+                numArr[0] = 1
+                numArr[2] = numArr[2] + 1
+            }
+            let arrStr = numArr.map((d) => (
+                d.toString()
+            ))
+            if(arrStr[0].length < 2) {
+                arrStr[0] = 0 + arrStr[0]
+            }
+            if(arrStr[1].length < 2) {
+                arrStr[1] = 0 + arrStr[1]
+            }
+            let newDate = arrStr.join('/')
+
+            return newDate;
+            }
+        }
+        let returnDate = toReturn(startDate);
+
+        const booking = {
+            size,
+            startDate,
+            returnDate,
+            rent: false,
+            buy: true,
+            itemId: id,
+            userId,
+        }
+
+        const newBooking = await dispatch(bookItem(booking))
     }
 
     //Rent
     const handleRent = async(e) => {
         e.preventDefault();
+
+        setRent(true)
+        //find return date 1 mo later
+        const toReturn = (startDate) => {
+            if(startDate) {
+                let arr = startDate.split('/');
+
+            let numArr = arr.map((d) => Number(d))
+            if(numArr[0] < 12) {
+                numArr[0] = numArr[0] + 1
+            } else {
+                numArr[0] = 1
+                numArr[2] = numArr[2] + 1
+            }
+            let arrStr = numArr.map((d) => (
+                d.toString()
+            ))
+            if(arrStr[0].length < 2) {
+                arrStr[0] = 0 + arrStr[0]
+            }
+            if(arrStr[1].length < 2) {
+                arrStr[1] = 0 + arrStr[1]
+            }
+            let newDate = arrStr.join('/')
+
+            return newDate;
+            }
+        }
+        let returnDate = toReturn(startDate);
+
+        const booking = {
+            size,
+            startDate,
+            returnDate,
+            rent: true,
+            buy: false,
+            itemId: id,
+            userId,
+        }
+
+        const newBooking = await dispatch(bookItem(booking))
     }
 
 
     let rentPurchaseContent;
-    if(!rented && !bought) {
+    if(!rent && !buy) {
         rentPurchaseContent =(
             <div className='item-rent-purchase-form'>
                 <form>
@@ -58,14 +171,14 @@ const ItemDetail = () => {
             </div>
         )
     }
-    if(rented) {
+    if(rent) {
         rentPurchaseContent = (
             <>
                 <p>You've Rented This Item</p>
             </>
         )
     }
-    if(bought) {
+    if(buy) {
         rentPurchaseContent = (
             <>
                 <p>You've Purchased This Item</p>
@@ -81,12 +194,12 @@ const ItemDetail = () => {
 
                 </div>
                 <div className='item-detail-photo'>
-                    <img src={item.photo} alt='item pic' />
+                    <img src={item?.photo} alt='item pic' />
                 </div>
                 <div className='item-info-container'>
-                    <h2 className='item-designer'>{item.Designer.name}</h2>
-                    <p className='item-retail'>{`Retail Price: $${item.originalPrice_USD}`}</p>
-                    <p className='item-description'>{item.description}</p>
+                    <h2 className='item-designer'>{item?.Designer.name}</h2>
+                    <p className='item-retail'>{`Retail Price: $${item?.originalPrice_USD}`}</p>
+                    <p className='item-description'>{item?.description}</p>
                 </div>
                 <div>
                     {rentPurchaseContent}
