@@ -34,7 +34,8 @@ main {
 .main-logo img {
     animation: rotation 10s infinite linear;
     height: 10em;
-    width: auto
+    width: auto;
+    margin-right: 5.2em;
 }
 
 @keyframes rotation {
@@ -110,4 +111,29 @@ main {
   border: none;
   margin-left: 30em;
   margin-right: auto;
+  box-shadow: 1px 2px 4px #4c4c4c20;
+}
+
+.main-book-button button:hover {
+  background-color: white;
+  box-shadow: 1px 2px 6px #4c4c4c60;
+}
+
+.main-user-buttons button {
+  display: block;
+  background-color: transparent;
+  border: 1px solid #4c4c4c80;
+  width: 17em;
+  height: 2.5em;
+  margin-top: 2em;
+  margin-right: 5em;
+  font-size: 1.1em;
+  font-weight: 400;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px #4c4c4c20;
+}
+
+.main-user-buttons button:hover {
+  background-color: #b0a4a640;
+  box-shadow: 1px 2px 6px #4c4c4c60;
 }

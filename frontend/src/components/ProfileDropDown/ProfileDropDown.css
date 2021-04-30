@@ -6,6 +6,8 @@
 
 .profile-dropdown li {
     display: block;
+    padding-top: .5em;
+    padding-bottom: .5em;
 }
 
 .profile-dropdown-profile #link {
@@ -15,4 +17,12 @@
 
 .profile-dropdown-profile #link:hover {
     color: #4c4c4c
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #b0a4a6;
+    padding-left: 0;
+    font-size: .9em;
 }
