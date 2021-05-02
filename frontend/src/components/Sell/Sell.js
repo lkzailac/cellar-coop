@@ -78,13 +78,12 @@ const Sell = () => {
 
         const newItem = await dispatch(listItem(listingItem));
         dispatch(getListings(userId))
-        console.log('new item', newItem)
 
         //if successful reset form values
         if(newItem) {
             setDesignerId('')
             setCategory('')
-            setPhoto('')
+            setPhoto(null)
             setPriceToBuy_USD('')
             setPriceToRent_USD('')
             setOriginalPrice_USD('')

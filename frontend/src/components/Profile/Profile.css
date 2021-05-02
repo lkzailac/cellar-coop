@@ -1,0 +1,110 @@
+.profile-container {
+    display: grid;
+    grid-template-columns: 2 50%;
+    position: absolute;
+    top: 26em;
+    left: 25em;
+    margin-left: 6em;
+}
+
+.profile-container h2 {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c90;
+    font-size: 1.4em;
+    margin-right: 15em;
+    margin-bottom: 2em;
+}
+
+.profile-info {
+    grid-column-start: 1;
+    height: 20em;
+
+}
+
+.profile-email {
+    margin-bottom: 1.2em;
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+}
+
+.profile-firstName {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+}
+
+.profile-lastName {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+}
+
+.profile-form li {
+    display: block;
+    margin-bottom: 1.2em;
+    padding-left: 0;
+}
+.profile-form input {
+    display: block;
+    width: 16em;
+    height: 2em;
+    margin-bottom: 1.4em;
+    border-radius: 0;
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
+}
+
+.profile-form label {
+    margin-right: 2em;
+
+}
+
+.fit-info {
+    grid-column-start: 2;
+}
+
+.profile-info button {
+    background-color: #ffd5ca;
+    width: 8em;
+    height: 2em;
+    font-size: 1em;
+    font-weight: 400;
+    color: #b0a4a6;
+    border: none;
+    margin-left: 2.6em;
+    margin-top: 2em;
+    box-shadow: 1px 2px 4px #4c4c4c20;
+}
+
+.profile-info button:hover {
+    background-color: white;
+    box-shadow: 1px 2px 6px #4c4c4c60;
+}
+
+
+
+.fit-form select {
+    display: block;
+    width: 16em;
+    height: 2.2em;
+    margin-bottom: 1.4em;
+    border-radius: 0;
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
+}
+
+.fit-info button {
+    background-color: #ffd5ca;
+    width: 8em;
+    height: 2em;
+    font-size: 1em;
+    font-weight: 400;
+    color: #b0a4a6;
+    border: none;
+    margin-left: 2.6em;
+    margin-top: 2em;
+    box-shadow: 1px 2px 4px #4c4c4c20;
+}
+
+.fit-info button:hover {
+    background-color: white;
+    box-shadow: 1px 2px 6px #4c4c4c60;
+}

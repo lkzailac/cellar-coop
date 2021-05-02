@@ -8,6 +8,7 @@
 header {
     margin-top: 5em;
     position: relative;
+    margin-bottom: 7em;
 }
 
 .profile-rent-sell-buy {
@@ -30,4 +31,37 @@ header {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1em;
+}
+
+.sidebar {
+    margin-top: em;
+    background-color: white;
+    height: 48em;
+    display: inline-block;
+
+
+
+}
+
+.sidebar ul {
+    margin-top: 20em;
+    margin-right: 5em;
+    margin-left: 6em;
+}
+
+.sidebar li{
+    display: block;
+    margin: .4em;
+
+
+}
+
+.sidebar button {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+main.main-profile-page {
+    display: inline-block;
+    margin-top: 0;
 }

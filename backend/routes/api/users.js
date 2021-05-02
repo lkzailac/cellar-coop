@@ -61,7 +61,7 @@ router.post('/:id', requireAuth, asyncHandler(async(req, res) => {
     const updatedUser = await user.update({
         firstName, lastName, height_in, weight_lbs, dressSize
     })
-    console.log('updated user api route', updatedUser)
+    // console.log('updated user api route', updatedUser)
     return res.json(updatedUser);
 
 }))
@@ -85,7 +85,7 @@ router.get('/:id/bookings', requireAuth, asyncHandler( async(req, res) => {
 router.post('/book', requireAuth, asyncHandler( async(req, res) => {
     const { size, startDate, returnDate, rent, buy, itemId, userId } = req.body;
 
-    console.log('req body from route ', req.body)
+    // console.log('req body from route ', req.body)
     const newBooking = await Booking.create({
         size, startDate, returnDate, rent, buy, itemId, userId
     })
@@ -115,7 +115,7 @@ router.post('/listings/:id', requireAuth, asyncHandler(async(req, res)=> {
     const { listingId } = req.body;
     const id = parseInt(listingId, 10);
 
-   console.log('listingid to delete from back end', id)
+//    console.log('listingid to delete from back end', id)
 
     const thisListing = await Listing.findByPk(listingId);
     const itemId = thisListing.itemId;
