@@ -77,20 +77,22 @@ const Sell = () => {
         };
 
         const newItem = await dispatch(listItem(listingItem));
+        dispatch(getListings(userId))
         console.log('new item', newItem)
 
         //if successful reset form values
         if(newItem) {
-            setDesignerId(null)
+            setDesignerId('')
             setCategory('')
-            setPhoto(null)
-            setPriceToBuy_USD(null)
-            setPriceToRent_USD(null)
-            setOriginalPrice_USD(null)
+            setPhoto('')
+            setPriceToBuy_USD('')
+            setPriceToRent_USD('')
+            setOriginalPrice_USD('')
             setSize('')
             setDescription('')
         }
     }
+
 
     //update photo
     const updateFile = (e) => {
@@ -99,9 +101,7 @@ const Sell = () => {
     };
 
 
-
     const deleteSell = async (listingId) => {
-
         if(listingId) {
             dispatch(deleteListing(listingId));
         }
@@ -139,7 +139,7 @@ const Sell = () => {
                         <option className='sell-size-options' value='l'>Large</option>
                     </select>
                     <textarea className='sell-description' placeholder='Description' value={description} onChange={(e) => setDescription(e.target.value)}/>
-                    <button type='submit' >Save</button>
+                    <button type='submit'>Save</button>
                 </form>
 
             </div>

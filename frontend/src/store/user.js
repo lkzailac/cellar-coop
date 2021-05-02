@@ -63,7 +63,6 @@ export const updateProfile = ( payload ) => async dispatch => {
 
     if(!res.ok) throw res;
     const user = await res.json();
-    console.log('data valuse from session profile update thunk', user)
     dispatch(getUser(user))
 }
 
@@ -81,7 +80,6 @@ export const getBookings = (userId) => async dispatch => {
 //new booking
 export const bookItem = (booking) => async dispatch => {
 
-    console.log('booking from THUNK', booking)
 
     const res = await csrfFetch('/api/users/book', {
         method: "POST",
@@ -108,8 +106,6 @@ export const getListings = (userId) => async dispatch => {
 
 //delete listing
 export const deleteListing = (listingId) => async dispatch => {
-
-    console.log('listing to delete id from USER thunk', listingId)
 
     const res = await csrfFetch(`/api/users/listings/${listingId}`, {
         method: "POST",
