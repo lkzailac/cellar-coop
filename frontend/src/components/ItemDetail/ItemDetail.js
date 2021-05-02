@@ -22,34 +22,6 @@ const ItemDetail = () => {
     const [buy, setBuy] = useState(false);
 
 
-    // useEffect((startDate) => {
-    //     if(startDate) {
-    //         let arr = startDate.split('/');
-
-    //     let numArr = arr.map((d) => Number(d))
-    //         if(numArr[0] < 12) {
-    //          numArr[0] = numArr[0] + 1
-
-    //     } else {
-    //         numArr[0] = 1
-    //         numArr[2] = numArr[2] + 1
-    //     }
-    //     let arrStr = numArr.map((d) => (
-    //         d.toString()
-    //        ))
-    //     if(arrStr[0].length < 2) {
-    //         arrStr[0] = 0 + arrStr[0]
-    //     }
-    //     if(arrStr[1].length < 2) {
-    //         arrStr[1] = 0 + arrStr[1]
-    //     }
-    //     let newDate = arrStr.join('/')
-    //     setReturnDate(newDate);
-    //     }
-
-
-    // }, [startDate])
-
     useEffect(() => {
         dispatch(getOneItem(id))
     }, [dispatch])

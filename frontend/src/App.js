@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 import ItemsPage from './components/ItemsPage';
 import ItemDetail from './components/ItemDetail';
 import HomePage from './components/HomePage';
@@ -18,7 +19,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className='main-container'>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -36,7 +37,8 @@ function App() {
           </Route>
         </Switch>
       )}
-    </>
+      <Footer />
+    </ div>
   );
 }
 

@@ -52,9 +52,9 @@ export const getProfile = ( userId ) => async dispatch => {
 
 //update profile
 export const updateProfile = ( payload ) => async dispatch => {
-    console.log('payload from session profile update thunk', payload)
+
     const res = await csrfFetch(`/api/users/${payload.id}`, {
-        method: 'PUT',
+        method: 'POST',
         body: JSON.stringify(payload),
         headers: {
             'Content-Type': 'application/json'
@@ -62,9 +62,9 @@ export const updateProfile = ( payload ) => async dispatch => {
     });
 
     if(!res.ok) throw res;
-    const data = await res.json();
-    console.log('this user from session store', data.user)
-    dispatch(getUser(data.user))
+    const user = await res.json();
+    console.log('data valuse from session profile update thunk', user)
+    dispatch(getUser(user))
 }
 
 //get bookings
@@ -144,7 +144,7 @@ const userReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case GET_USER: {
-            newState = Object.assign({}, state);
+            newState = { ...state };
             newState.userProfile = action.user;
             return newState;
         }

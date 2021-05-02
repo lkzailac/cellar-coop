@@ -51,12 +51,19 @@ router.get('/:id', requireAuth, restoreUser, asyncHandler(async(req, res) => {
 }))
 
 //update user profile
-router.put('/:id', requireAuth, asyncHandler(async(req, res) => {
+router.post('/:id', requireAuth, asyncHandler(async(req, res) => {
 
+    const {firstName, lastName, height_in, weight_lbs, dressSize} = req.body;
     const id = parseInt(req.params.id, 10);
     const user = await User.findByPk(id);
-    // console.log('request body user api route', req.body)
-    await user.update(req.body)
+
+
+    const updatedUser = await user.update({
+        firstName, lastName, height_in, weight_lbs, dressSize
+    })
+    console.log('updated user api route', updatedUser)
+    return res.json(updatedUser);
+
 }))
 
 // get user's bookings

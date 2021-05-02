@@ -41,9 +41,10 @@ const ProfilePage = () => {
         <>
             <div className='profile-container'>
                 <header>
-                    <div>
-                        <p>Rent. Sell. Buy.</p>
+                    <div className='profile-rent-sell-buy'>
+                        <p>Rent.   Sell.   Buy.</p>
                     </div>
+                    <div className='header-underline' />
                 </header>
                 <div className='sidebar'>
                     <ul>

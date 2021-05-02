@@ -1,5 +1,33 @@
-.profile-container {
+/* .profile-container {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
     grid-template-rows: repeat(6, 1fr);
+} */
+
+
+header {
+    margin-top: 5em;
+    position: relative;
+}
+
+.profile-rent-sell-buy {
+    /* position: absolute; */
+    top: -2.5em;
+    right: 7em;
+    font-family: bilo, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: .1em;
+    color: #b0a4a6;
+    font-size: 1.0em;
+
+}
+
+.header-underline {
+    height: .1em;
+    width: 80%;
+    background-color: #b0a4a680;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
 }
