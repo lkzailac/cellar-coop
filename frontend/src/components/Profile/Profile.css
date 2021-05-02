@@ -37,6 +37,21 @@
     color: #4c4c4c;
 }
 
+.profile-height {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+}
+
+.profile-weight {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+}
+
+.profile-size {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+}
+
 .profile-form li {
     display: block;
     margin-bottom: 1.2em;
@@ -46,6 +61,7 @@
     display: block;
     width: 16em;
     height: 2em;
+    font-size: 1em;
     margin-bottom: 1.4em;
     border-radius: 0;
     border: 1px solid #4c4c4c40;
@@ -57,10 +73,6 @@
 
 }
 
-.fit-info {
-    grid-column-start: 2;
-}
-
 .profile-info button {
     background-color: #ffd5ca;
     width: 8em;
@@ -69,7 +81,7 @@
     font-weight: 400;
     color: #b0a4a6;
     border: none;
-    margin-left: 2.6em;
+    margin-left: 4em;
     margin-top: 2em;
     box-shadow: 1px 2px 4px #4c4c4c20;
 }
@@ -79,16 +91,32 @@
     box-shadow: 1px 2px 6px #4c4c4c60;
 }
 
-
+/* FIT FORM  */
+.fit-info {
+    grid-column-start: 2;
+}
 
 .fit-form select {
+    font-size: 1em;
     display: block;
     width: 16em;
-    height: 2.2em;
+    height: 2.3em;
     margin-bottom: 1.4em;
     border-radius: 0;
     border: 1px solid #4c4c4c40;
     box-shadow: 1px 1px 3px #4c4c4c20;
+}
+
+
+.fit-form li {
+    display: block;
+    margin-bottom: 1.2em;
+    padding-left: 0;
+}
+
+.fit-form label {
+    margin-right: 2em;
+
 }
 
 .fit-info button {
@@ -99,7 +127,7 @@
     font-weight: 400;
     color: #b0a4a6;
     border: none;
-    margin-left: 2.6em;
+    margin-left: 4em;
     margin-top: 2em;
     box-shadow: 1px 2px 4px #4c4c4c20;
 }

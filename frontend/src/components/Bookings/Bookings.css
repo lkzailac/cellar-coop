@@ -1,0 +1,142 @@
+.bookings-container {
+    position: absolute;
+    top: 20em;
+    left: 27em;
+}
+
+.bookings-container h2 {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c90;
+    font-size: 1.4em;
+    margin-right: 15em;
+    margin-bottom: 2em;
+}
+
+.booking {
+    display: grid;
+    grid-template-columns: 7 1fr 150px 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2 1fr;
+    background-color: white;
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
+    margin-bottom: 3em;
+}
+
+.booking-img {
+    grid-row: 1 /span 2;
+    width: 140px;
+    height: 140px;
+    text-align: center;
+}
+
+.booking-img img {
+    max-height: 70px;
+    max-width: 70px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.booking-designer {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.booking-designer p {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+    margin-top: 0;
+    width: 220px;
+    text-align: center;
+}
+
+.booking-rent-buy {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    align-self: start;
+
+}
+
+.booking-rent-buy p {
+    margin-top: .18em;
+    color: #4c4c4c;
+    font-weight: 300;
+    margin-left: 0;
+    width: 200px;
+    text-align: center;
+}
+
+.booking-size {
+    grid-column-start: 4;
+    grid-row-start: 2;
+    align-self: start;
+}
+
+.booking-size p {
+    margin-top: .18em;
+    color: #4c4c4c;
+    font-weight: 300;
+    width: 150px;
+    text-align: center;
+
+}
+
+.booking-arrive-label {
+    grid-column-start: 5;
+    grid-row-start: 1;
+    align-self: end;
+    justify-self: center;
+}
+
+.booking-arrive-label p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: .7em;
+    color: #b0a4a6;
+    width: 150px;
+    text-align: center;
+
+}
+
+.booking-arrive {
+    grid-column-start: 5;
+    grid-row-start: 2;
+    align-self: start;
+}
+
+.booking-arrive p {
+    margin-top: .18em;
+    color: #4c4c4c;
+    font-weight: 300;
+    width: 150px;
+    text-align: center;
+
+}
+
+
+.booking-return-label {
+    grid-column-start: 6;
+    grid-row-start: 1;
+    align-self: end;
+    justify-self: center;
+}
+
+.booking-return-label p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: .7em;
+    color: #b0a4a6;
+
+}
+
+.booking-return {
+    grid-column-start: 6;
+    grid-row-start: 2;
+}
+
+.booking-return p {
+    margin-top: .18em;
+    color: #4c4c4c;
+    font-weight: 300;
+    width: 150px;
+    text-align: center;
+
+}

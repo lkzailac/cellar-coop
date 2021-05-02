@@ -98,7 +98,7 @@ const Profile = () => {
                             <option value='l'>Large</option>
                         </select>
                         }
-                        {!user?.height_in && !user?.weight_lbs && !user?.dressSize ? <button type="submit">Save</button> : <></>}
+                        {!user?.height_in || !user?.weight_lbs || !user?.dressSize ? <button type="submit">Save</button> : <></>}
                     </form>
                 </div>
 
