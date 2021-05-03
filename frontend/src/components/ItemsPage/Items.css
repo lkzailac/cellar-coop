@@ -1,23 +1,44 @@
-/* css stuff for listings */
-
-.sidebar h2 {
-    font-family: 'Shippori Mincho', serif;
-    color: #4c4c4c;
-    font-size: 1em;
+.items {
+    position: relative;
 }
 
+.items-container {
+    position: absolute;
+    top: 20em;
+    left: 30em;
+    margin-bottom: 10em;
+    height: 900px;
+    overflow: auto;
 
+}
+
+.scroll {
+    overflow: auto;
+}
+
+#sidebar-heading {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c;
+    font-size: 1.2em;
+
+}
+
+.items li {
+    color: #b0a4a6;
+    font-size: 1.2em;
+}
 
 .itemList-item {
     display: inline-block;
     margin-right: 2em;
     margin-bottom: 1em;
-    border: 1px solid #d5d5d5;
+    /* border: 1px solid #d5d5d5; */
     border-radius: 1px;
     background-color: white;
     width: 13em;
     height: 27em;
-
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
 }
 
 .image-container {
@@ -64,4 +85,10 @@
     padding-left: 2.5em;
     padding-bottom: 0;
     margin: 0;
+}
+
+.sorted {
+    text-align: right;
+    margin-right: 12em;
+    color: #4c4c4c;
 }

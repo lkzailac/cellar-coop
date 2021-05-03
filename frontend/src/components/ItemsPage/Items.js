@@ -25,13 +25,10 @@ const ItemsPage = () => {
     // }
 
     return (
-        <>
-            <div className='sorted'>
-                <p>Sorted By: Most Recent</p>
-            </div>
+        <div className='items'>
             <div className='sidebar'>
-                <h2>Shop</h2>
                 <ul>
+                    <li id='sidebar-heading'>Shop</li>
                     <li>Dresses</li>
                     <li>Sweaters</li>
                     <li>T-Shirts</li>
@@ -39,33 +36,32 @@ const ItemsPage = () => {
                     <li>Denim</li>
                 </ul>
             </div>
-            <main>
-                <div className='itemList'>
+            <div className=' scroll items-container'>
+                {/* <div className='items-scroll'> */}
+                    <div className='sorted'>
+                        <p>Sorted By: Most Recent</p>
+                    </div>
+                    <div className='itemList'>
 
-                    {items?.map((item) => (
-                        <Link to={`/items/${item.id}`}>
-                            <div key={item.id} className='itemList-item' >
-                                <div className='image-container'>
-                                    <img src={`${item.photo}`} alt={item.Category.name} />
+                        {items?.map((item) => (
+                            <Link to={`/items/${item.id}`}>
+                                <div key={item.id} className='itemList-item' >
+                                    <div className='image-container'>
+                                        <img src={`${item.photo}`} alt={item.Category.name} />
+                                    </div>
+                                    <div className='itemList-item-info'>
+                                        <p className='itemList-item-designer'>{item.Designer.name}</p>
+                                        <p className='itemList-item-size'>{(item.sizeSInventory > 0 && item.sizeMInventory > 0 && item.sizeLInventory > 0) ? <>Multiple Sizes</> : <>one size available</>}</p>
+                                        <p className='itemList-item-price'>{`rent for $${item.priceToRent_USD}`}</p>
+                                    </div>
                                 </div>
-                                <div className='itemList-item-info'>
-                                    <p className='itemList-item-designer'>{item.Designer.name}</p>
-                                    <p className='itemList-item-size'>{(item.sizeSInventory > 0 && item.sizeMInventory > 0 && item.sizeLInventory > 0) ? <>Multiple Sizes</> : <>one size available</>}</p>
-                                    <p className='itemList-item-price'>{`rent for $${item.priceToRent_USD}`}</p>
-                                </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                {/* </div> */}
 
-                            </div>
-                        </Link>
-                    ))}
-
-
-                </div>
-            </main>
-
-
-
-        </>
-
+        </div>
 
     )
 }

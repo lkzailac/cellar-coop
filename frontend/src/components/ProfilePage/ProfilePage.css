@@ -8,7 +8,7 @@
 header {
     margin-top: 5em;
     position: relative;
-    margin-bottom: 7em;
+    margin-bottom: 4em;
 }
 
 .profile-rent-sell-buy {
@@ -40,6 +40,7 @@ header {
     background-color: white;
     height: 60em;
     display: inline-block;
+    border-right: 1px solid #4c4c4c25;
 
 }
 
