@@ -76,8 +76,9 @@ const Sell = () => {
             category,
         };
 
-        dispatch(getListings(userId))
+
         const newItem = await dispatch(listItem(listingItem));
+        dispatch(getListings(userId));
 
         //if successful reset form values
         if(newItem) {
@@ -105,8 +106,6 @@ const Sell = () => {
             dispatch(deleteListing(listingId));
         }
     }
-
-
 
     return (
         <div className='sell-listing-container'>

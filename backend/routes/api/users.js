@@ -85,7 +85,7 @@ router.get('/:id/bookings', requireAuth, asyncHandler( async(req, res) => {
 router.post('/:id/bookings', asyncHandler( async(req, res) => {
     const { booking } = req.body;
 
-    console.log('req body from route ', req.body)
+    // console.log('req body from route ', req.body)
     const newBooking = await Booking.create({
         size: booking.size,
         startDate: booking.startDate,
