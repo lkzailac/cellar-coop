@@ -137,8 +137,11 @@ const ItemDetail = () => {
                         Start Date
                         <input className='rent-date'value={startDate} onChange={(e) => setStartDate(e.target.value)} placeholder='mm/dd/yyyy'/>
                     </label>
-                    <button className='rent-button' type='submit' onClick={handleRent}>Rent</button>
-                    <button className='buy-button' type='submit' onClick={handleBuy}>Buy</button>
+                    <div class='rent-buy-buttons'>
+                        <button className='rent-button' type='submit' onClick={handleRent}>{`Rent for $${item?.priceToRent_USD}`}</button>
+                        <button className='buy-button' type='submit' onClick={handleBuy}>{`Buy for $${item?.priceToBuy_USD}`}</button>
+                    </div>
+
                 </form>
             </div>
         )
@@ -169,11 +172,17 @@ const ItemDetail = () => {
                     <img src={item?.photo} alt='item pic' />
                 </div>
                 <div className='item-info-container'>
-                    <h2 className='item-designer'>{item?.Designer.name}</h2>
-                    <p className='item-retail'>{`Retail Price: $${item?.originalPrice_USD}`}</p>
-                    <p className='item-description'>{item?.description}</p>
+                    <div className='item-designer'>
+                        <h2 >{item?.Designer.name}</h2>
+                    </div>
+                    <div className='item-retail'>
+                        <p>{`Retail Price: $${item?.originalPrice_USD}`}</p>
+                    </div>
+                    <div className='item-description'>
+                        <p >{item?.description}</p>
+                    </div>
                 </div>
-                <div>
+                <div className='rent-purchase-content'>
                     {rentPurchaseContent}
                 </div>
 
