@@ -6,7 +6,7 @@ const SEE_BOOKING = 'session/SEE_BOOKING'
 const SEE_LISTING = 'session/SEE_LISTING'
 const SEE_DESIGNERS = 'session/SEE_DESIGNERS'
 const REMOVE_LISTING = 'session/REMOVE_ITEM'
-
+const SET_BOOKING = 'session/SET_BOOKING'
 
 
 //action creators
@@ -18,6 +18,11 @@ const getUser = (user) => ({
 const seeBookings = (bookings) => ({
     type: SEE_BOOKING,
     bookings
+})
+
+const getBooking = (booking) => ({
+    type: SET_BOOKING,
+    booking
 })
 
 const seeListings = (listings) => ({
@@ -79,16 +84,18 @@ export const getBookings = (userId) => async dispatch => {
 
 //new booking
 export const bookItem = (booking) => async dispatch => {
+    console.log('booking from THUNk', booking)
 
-
-    const res = await csrfFetch('/api/users/book', {
+    const res = await csrfFetch(`/api/users/${booking.userId}/bookings`, {
         method: "POST",
-        body: JSON.stringify(booking),
+        body: JSON.stringify({booking}),
         headers: { 'Content-Type': 'application/json' }
     })
 
     if (!res.ok) throw res;
-    await res.json();
+    const newBooking = await res.json();
+    console.log('new booking from THUNK', newBooking)
+    dispatch(getBooking(newBooking))
 }
 
 //get listings
@@ -167,6 +174,13 @@ const userReducer = (state = initialState, action) => {
         case SET_ITEM: {
             newState = Object.assign({}, state);
             newState.items = action.item;
+            return newState;
+        }
+        case SET_BOOKING: {
+            // newState = Object.assign({}, state);
+            // newState.bookings = action.booking;
+            const newBooking = action.booking;
+            newState = { ...state, newBooking }
             return newState;
         }
         default:

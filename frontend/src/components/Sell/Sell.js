@@ -76,8 +76,8 @@ const Sell = () => {
             category,
         };
 
-        const newItem = await dispatch(listItem(listingItem));
         dispatch(getListings(userId))
+        const newItem = await dispatch(listItem(listingItem));
 
         //if successful reset form values
         if(newItem) {
