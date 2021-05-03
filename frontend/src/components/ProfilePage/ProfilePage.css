@@ -34,12 +34,12 @@ header {
 }
 
 .sidebar {
-    margin-top: em;
+    position: absolute;
+    bottom: 0;
+    top: 12em;
     background-color: white;
-    height: 48em;
+    height: 60em;
     display: inline-block;
-
-
 
 }
 
@@ -53,7 +53,6 @@ header {
     display: block;
     margin: .4em;
 
-
 }
 
 .sidebar button {
@@ -61,7 +60,7 @@ header {
     font-weight: 400;
 }
 
-main.main-profile-page {
+.main-profile-page {
     display: inline-block;
     margin-top: 0;
 }

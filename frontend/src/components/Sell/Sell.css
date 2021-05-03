@@ -1,4 +1,173 @@
+.sell-listing-container {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 2 1fr 2fr;
+    top: 25em;
+    left: 27em;
+}
+
+.sell-listing-container h2 {
+    font-family: 'Shippori Mincho', serif;
+    color: #4c4c4c90;
+    font-size: 1.4em;
+    margin-right: 15em;
+    margin-bottom: 2em;
+}
+
+.sell-form li {
+    display: block;
+    margin-bottom: 1.2em;
+    padding-left: 0;
+}
+.sell-form input {
+    display: block;
+    width: 16em;
+    height: 2em;
+    font-size: 1em;
+    margin-bottom: 1.4em;
+    border-radius: 0;
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
+}
+
+.sell-form select {
+    font-size: 1em;
+    display: block;
+    width: 16.5em;
+    height: 2.3em;
+    margin-bottom: 1.4em;
+    border-radius: 0;
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
+}
+
+.sell-form textarea {
+    font-size: 1em;
+    display: block;
+    width: 16em;
+    height: 2.3em;
+    margin-bottom: 1.4em;
+    border-radius: 0;
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
+}
+
+.sell-form #sell-photo input{
+    border: none;
+    box-shadow: none;
+}
+
 .listing-items img {
     height: 4em;
     width: auto
+}
+
+.sell-form button {
+    background-color: #ffd5ca;
+    width: 8em;
+    height: 2em;
+    font-size: 1em;
+    font-weight: 400;
+    color: #b0a4a6;
+    border: none;
+    margin-left: 4em;
+    margin-top: 1.5em;
+    box-shadow: 1px 2px 4px #4c4c4c20;
+}
+
+.sell-form button:hover {
+    background-color: white;
+    box-shadow: 1px 2px 6px #4c4c4c60;
+}
+
+.listing-container {
+    grid-column-start: 2;
+}
+
+.listing-item {
+    display: grid;
+    grid-template-columns: 5 1fr;
+    grid-template-rows: 2 1ffr;
+    background-color: white;
+    border: 1px solid #4c4c4c40;
+    box-shadow: 1px 1px 3px #4c4c4c20;
+    margin-bottom: 2em;
+}
+
+.listing-img {
+    grid-row: 1 /span 2;
+    width: 110px;
+    height: 110px;
+    text-align: center;
+}
+
+.listing-img img {
+    max-height: 70px;
+    max-width: 70px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.listing-designer {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.listing-designer p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: .8em;
+    color: #4c4c4c;
+    margin-top: 0;
+    width: 170px;
+    text-align: center;
+}
+
+.listing-price-rent {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    align-self: end;
+    width: 120px;
+    text-align: center;
+}
+
+.listing-price-rent p {
+    margin-bottom: 0;
+    font-size: .8em;
+}
+
+.listing-price-buy {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    text-align: center;
+}
+
+.listing-price-buy p {
+    margin-top: .4em;
+    font-size: .8em;
+}
+
+.listing-size {
+    grid-column-start: 4;
+    grid-row-start: 2;
+    align-self: start;
+    width: 120px;
+    text-align: center;
+}
+
+.listing-size p {
+    margin-top: 0;
+}
+
+.listing-unlist {
+    grid-column-start: 5;
+    grid-row-start: 2;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+}
+
+.listing-unlist button {
+    color: #b0a4a6;
+    font-size: 1.2em;
 }

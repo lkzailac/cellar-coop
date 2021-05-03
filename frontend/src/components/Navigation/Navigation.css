@@ -1,11 +1,11 @@
 .nav-container {
     position: relative;
-
     width: 100%;
 }
 
 .nav-div {
     position: fixed;
+    z-index:  100;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;

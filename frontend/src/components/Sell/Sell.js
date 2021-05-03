@@ -109,7 +109,7 @@ const Sell = () => {
 
 
     return (
-        <>
+        <div className='sell-listing-container'>
             <div className='sell-container'>
                 <h2>Sell</h2>
                 <form className='sell-form' onSubmit={handleSubmit}>
@@ -127,7 +127,9 @@ const Sell = () => {
                         <option className='category-options' value='t-shirt'>T-Shirt</option>
                         <option className='category-options' value='denim'>Denim</option>
                     </select>
-                    <input className='sell-photo' placeholder='Photo' type='file' onChange={updateFile}/>
+                    <div id='sell-photo'>
+                        <input placeholder='Photo' type='file' onChange={updateFile}/>
+                    </div>
                     <input className='sell-rent-price' placeholder='Rental Price' value={priceToRent_USD} onChange={(e) => setPriceToRent_USD(e.target.value)}/>
                     <input className='sell-buy-price' placeholder='Sale Price' value={priceToBuy_USD} onChange={(e) => setPriceToBuy_USD(e.target.value)}/>
                     <input className='sell-original-price' placeholder='Original Retail Price' value={originalPrice_USD} onChange={(e) => setOriginalPrice_USD(e.target.value)}/>
@@ -144,31 +146,44 @@ const Sell = () => {
             </div>
 
             <div className='listing-container'>
-                <h2>Listings</h2>
-                <div className='listing-items'>
-                    {listings?.map((listing) => (
-                        <>
-                            <img key={listing.id} src={listing.Item.photo}/>
-                            <p className='listing-designer'>{listing.Item.Designer.name}</p>
-                            <div className='listing-prices'>
-                                <p>{`rent for $${listing.Item.priceToRent_USD}`}</p>
-                                <p>{`buy for $${listing.Item.priceToBuy_USD}`}</p>
+                <div className='listing'>
+                    <h2>Listings</h2>
+                    <div className='listing-items'>
+                        {listings?.map((listing) => (
+                            <div className='listing-item'>
+                                <div className='listing-img'>
+                                    <img key={listing.id} src={listing.Item.photo}/>
+                                </div>
+                                <div className='listing-designer'>
+                                    <p>{listing.Item.Designer.name}</p>
+                                </div>
+                                <div className='listing-price-rent'>
+                                    <p>{`rent for $${listing.Item.priceToRent_USD}`}</p>
+                                </div>
+                                <div className='listing-price-buy'>
+                                    <p>{`buy for $${listing.Item.priceToBuy_USD}`}</p>
+                                </div>
+                                <div className='listing-size'>
+                                    <p >size
+                                        {listing.Item.sizeLInventory > 0 ? <> L</> : <></>}
+                                        {listing.Item.sizeMInventory > 0 ? <> M</> : <></>}
+                                        {listing.Item.sizeSInventory > 0 ? <> S</> : <></>}
+                                    </p>
+                                </div>
+                                <div className='listing-unlist'>
+                                    <button  type='button' value ={listing.id}onClick={(e) => deleteSell(e.target.value)}>Unlist</button>
+                                </div>
                             </div>
-                            <p className='listing-size'>size
-                                {listing.Item.sizeLInventory > 0 ? <> L</> : <></>}
-                                {listing.Item.sizeMInventory > 0 ? <> M</> : <></>}
-                                {listing.Item.sizeSInventory > 0 ? <> S</> : <></>}
-                            </p>
-                            <button className='listing-unlist' type='button' value ={listing.id}onClick={(e) => deleteSell(e.target.value)}>Unlist</button>
-                        </>
-                    ))}
+                        ))}
 
+                    </div>
                 </div>
+
             </div>
 
 
 
-        </>
+        </ div>
     )
 }
 
