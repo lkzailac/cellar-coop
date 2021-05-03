@@ -12,7 +12,7 @@ const ItemDetail = () => {
     const dispatch = useDispatch();
     const item = useSelector(state => state.items.item)
     const user = useSelector(state => state.session.user);
-    const userId = user.id;
+    const userId = user?.id;
     let { id } = useParams();
 
     const [size, setSize] = useState('')

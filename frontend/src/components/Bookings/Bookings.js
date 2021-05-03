@@ -16,7 +16,6 @@ const Bookings = () => {
         if(user) {
             dispatch(getBookings(userId))
         }
-
     }, [dispatch])
 
 
