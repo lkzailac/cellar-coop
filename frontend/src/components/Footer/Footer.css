@@ -13,17 +13,24 @@
 
 }
 
-.footer-name {
-  display: inline;
+.footer-container ul li {
+  display: float;
 }
 
 .footer-name p{
+  /* display: inline; */
   font-family: 'Shippori Mincho', serif;
 }
 
-.footer-linkedin {
+/* .footer-linkedin {
   display: inline;
 }
+.footer-linkedin a{
+  display: inline;
+}
+.footer-linkedin img{
+  display: inline;
+} */
 
 .footer-container img {
 

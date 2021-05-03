@@ -84,7 +84,7 @@ export const getBookings = (userId) => async dispatch => {
 
 //new booking
 export const bookItem = (booking) => async dispatch => {
-    console.log('booking from THUNk', booking)
+    // console.log('booking from THUNk', booking)
 
     const res = await csrfFetch(`/api/users/${booking.userId}/bookings`, {
         method: "POST",
@@ -94,7 +94,7 @@ export const bookItem = (booking) => async dispatch => {
 
     if (!res.ok) throw res;
     const newBooking = await res.json();
-    console.log('new booking from THUNK', newBooking)
+    // console.log('new booking from THUNK', newBooking)
     dispatch(getBooking(newBooking))
 }
 

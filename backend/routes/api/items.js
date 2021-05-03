@@ -31,7 +31,7 @@ router.get('/', restoreUser, asyncHandler(async(req, res) => {
 //get one item detail
 router.get('/:id', restoreUser, asyncHandler(async(req, res) => {
     const id = parseInt(req.params.id, 10)
-    console.log('item id from api', id);
+    // console.log('item id from api', id);
 
     if(id ){
         const myItem = await Item.findOne({
